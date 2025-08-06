@@ -14,7 +14,8 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    background-color:#203a43;
+      /* background: linear-gradient(to right, #0f2027, #203a43, #2c5364); */
       color: #ffffff;
       min-height: 100vh;
     }
@@ -50,6 +51,53 @@
       animation: slideRight 1s ease;
     }
 
+    .hero-content h2 span{
+   position: relative; 
+}
+.hero-content h2  span::before{
+    content: "Tanya Mahrauliya";
+    color: #7FFFD4;
+    animation:  word 20s infinite ;
+}
+.hero-content h2 ::after{
+    content: "";
+    position: absolute;
+    width:calc(100% + 8px);
+    height: 100%;
+    background-color:#203a43;
+    /* background: linear-gradient(to right, #0f2027, #203a43, #2c5364); */
+    border-left: 2px solid #7FFFD4 ;
+    right: -8px;
+    animation: curser .8s infinite , typing 20s  steps(14) infinite;
+}
+@keyframes curser{
+    to{
+    border-left: 2px solid #272b2a ;
+    }
+}
+@keyframes word{
+    0%,20%{
+        content: "Tanya Mahrauliya";
+    }
+    21%,40%{
+         content: "Software engineer";
+    }
+     41%,60%{
+         content: "Web developer";
+    }
+    61%,80%{
+        content: "Front-End Developer";
+    }
+}
+
+@keyframes typing{
+    10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
+        width: 0;
+    }
+    5%,20%,25%,40%,45%,60%,65%,80%,85%{
+     width:calc(100% + 8px);   
+    }
+}    
     .hero-content h2 {
       font-size: 36px;
       margin-bottom: 20px;
@@ -156,7 +204,7 @@
 
   <section class="hero">
     <div class="hero-content">
-      <h2>Hello! I'm Tanya 👩‍💻</h2>
+      <h2>Hello! <span></span>👩‍💻</h2>
       <p>I build beautiful, responsive, and animated websites using HTML, CSS, JavaScript, and Python. Passionate about creating user-friendly and professional web experiences.</p>
       <a href="#contact" class="btn">Hire Me</a>
     </div>
