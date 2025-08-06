@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio | Tanya Mahrauliya</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 20px 20px;
+      animation: fadeDown 1s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 48px;
+      color: #7FFFD4;
+    }
+
+    header p {
+      font-size: 20px;
+      color: #ccc;
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      gap: 40px;
+    }
+
+    .hero-content {
+      flex: 1;
+      max-width: 500px;
+      animation: slideRight 1s ease;
+    }
+
+    .hero-content h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #7FFFD4;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .hero-img {
+      flex: 1;
+      max-width: 400px;
+      animation: bounce 2s infinite alternate ease-in-out;
+      box-shadow: 0 0 20px rgba(127, 255, 212, 0.4);
+      border-radius: 50vh;
+    }
+
+    .hero-img img {
+      width: 100%;
+      clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin-top: 30px;
+      background: #7FFFD4;
+      color: #1e1e2f;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #66e7c1;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #aaa;
+      background-color: #1a1a2e;
+    }
+
+    /* Animations */
+    @keyframes slideRight {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      from {
+        transform: translateY(0px);
+      }
+      to {
+        transform: translateY(-20px);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 36px;
+      }
+
+      .hero-content h2 {
+        font-size: 28px;
+      }
+
+      .hero-content p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Portfolio webpage</h1>
+    <p>Front-End Developer | Web Designer | Python Learner</p>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Hello! I'm Tanya 👩‍💻</h2>
+      <p>I build beautiful, responsive, and animated websites using HTML, CSS, JavaScript, and Python. Passionate about creating user-friendly and professional web experiences.</p>
+      <a href="#contact" class="btn">Hire Me</a>
+    </div>
+    <div class="hero-img">
+      <img src="coding.jpg" alt="Coding with computer" />
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Tanya Mahrauliya. All rights reserved.
+  </footer>
+
+</body>
+</html>
