@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: #0f2027;
+            font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        h2{
+            color: #fff;
+            margin-bottom: 40px;
+        }
+        .btn {
+            padding: 15px 30px ;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 50px;
+            margin: 10px;
+            transition: all 0.3s ease;
+            color: white;
+            background: linear-gradient(135deg , #12c2e9,#c471ed,#f64f59);
+            background-size: 200% auto;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+        .btn:hover {
+            background-position: right center;
+            transform:  scale(1.05);
+            box-shadow: 0 10px 25px  rgba(0, 0, 0, 0.3);
+        }
+        .btn-outline {
+            background:  transparent;
+            border: 2px solid #00fff7;
+            color: #00fff7;
+        }
+        .btn-outline:hover{
+            background-color: #00fff7;
+            color: #000;
+        }
+
+        .btn-glow{
+            background: #ff416c;
+            box-shadow: 0 0 15px #ff416c, 0 0 25px #ff416c;
+        }
+        .btn-glow:hover{
+            box-shadow: 0 0 15px #ff416c, 0 0 30px #ff416c;
+        }
+    </style>
+</head>
+<body>
+    <h2>Professional Animated Buttons</h2>
+
+    <button class="btn">Gradient Hover</button>
+    <button class="btn btn-outline">Outline Button</button>
+    <button class="btn btn-glow">Glow Button</button>
+    
+</body>
+</html>
