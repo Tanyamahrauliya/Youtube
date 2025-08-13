@@ -45,6 +45,5 @@ while x <= 10:
     
   elif command == "stop":
         speak("Alright mam, shutting down my conversation mode. Goodbye!")
-    
   else:
         speak("Sorry mam, I didn't understand that command. Could you please repeat?")
