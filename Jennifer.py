@@ -13,8 +13,7 @@ def speak(text):
     engine.runAndWait()
     
 
-x = 0
-while x <= 10: 
+while True: 
   command = input("command prompt:")
   command = command.lower().strip()
   
