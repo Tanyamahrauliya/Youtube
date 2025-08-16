@@ -1,7 +1,5 @@
-   function testError() {
+function testError() {
   try {
-    // risky 
-    // undefinedVariable = 3
     let result = undefinedVariable + 5;
     alert(result);
   } catch (err) {
