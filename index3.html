@@ -36,32 +36,37 @@
     }
     .navbar a::after{
         content: " ";
-        width: 0%;
+        width: 3%;
         height: 2px;
-        background-color:black;
-        top: 50px;
-        /* position: absolute; */
+        background-color:#fff;
+        top: 55px;
+        position: absolute;
+        transform: scaleX(0);
+        transition: transform .5s;
+    }
+    .navbar a:hover::after{
+        transform: scaleX(1);
     }
     button{
         border-radius: 2vh;
         background: transparent;
         border: 2px solid #fff;
-        position: relative;
+        color: #fff;
         padding: 0px;
         transition: all 0.5s ease-in-out;
     }
     button:hover{
-        background-color: #3d3d3d;
+        color: #000;
     }
-  .login-box {
-    width: 450px;
+    .login-box {
+    width: 355px;
+    height: 300px;
     background: #fff;
-    padding: 40px;
+    padding: 30px;
     border-radius: 12px;
+    margin: 200px  10px 01px -550px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     text-align: center;
-    margin:100px 20px 20px 450px;
-    /* display: none; */
   }
 
   .login-box h2 {
@@ -95,7 +100,7 @@
     border: none;
     border-radius: 8px;
     background: linear-gradient(135deg, #c33764, #1d2671);
-    color: white;
+     color: #fff;
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
@@ -121,10 +126,10 @@
     text-decoration: underline;
   }
 
-   #loginBox{
-    display: none;
-   }
-
+h1{
+  margin: -90px 20px 20px 600px ;
+  position: absolute;
+}
     </style>
 </head>
 <body>
@@ -133,9 +138,12 @@
     <a href="">Home</a>
     <a href="">About</a>
     <a href="">Contact</a>
-    <button onclick="openForm()" id="openBtn"><a href="">Login</a></button>
+    <button class="openBtn"><a href="">Login</a></button>
     </div>
-  <div class="login-box"  id="loginBox">
+    <h1>Logo</h1>
+</nav>
+  <div class="form">
+  <div class="login-box">
     <h2>Login</h2>
     <form>
       <div class="input-box">
@@ -150,20 +158,8 @@
       </div>
     </form>
   </div>
-</nav>
-    <script>
-     const loginBox = document.getElementById("loginBox");
-
-    function openForm(){
-        if(display === 'none'){
-     loginBox.setAttribute(display,'block') ;
-  }
-   else{
-     loginBox.setAttribute(display,'none') ;
-  }
-}
-    </script>
 </body>
 </html>
+
 
 
