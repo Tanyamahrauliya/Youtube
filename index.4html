@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+   *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gilroy';
+  }   
+    html,body{
+    height: 100%;
+    width: 100%;
+   }   
+   body{
+    background: #000;
+   }
+   .container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    margin-top: 100px;
+   }
+.pulse {
+  width: 60px;
+  height: 60px;
+  background: #059ff2;
+  border-radius: 50%;
+  animation: pulse 1s ease-in-out infinite;
+}
+@keyframes pulse {
+  50% { transform: scale(1.5); opacity: 0.5; }
+}
+.loader {
+  width: 80px;
+  height: 80px;
+  border: 6px solid #ccc;
+  border-top-color: #059ff2;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.dots span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  background: #059ff2;
+  border-radius: 50%;
+  animation: bounce 0.6s infinite alternate;
+}
+.dots span:nth-child(2){ animation-delay: 0.2s; }
+.dots span:nth-child(3){ animation-delay: 0.4s; }
+@keyframes bounce {
+  to { transform: translateY(-15px); }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="dots">
+  <span></span><span></span><span></span>
+</div>
+<div class="loader"></div>
+<div class="pulse"></div>
+</div>
+</body>
+</html>
