@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+         *{
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Gilroy';
+        }   
+          html,body{
+          height: 100%;
+          width: 100%;
+         }  
+         body{
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+         }
+         input{
+            padding: 15px 60px;
+            border: none;
+            background: transparent;
+            color: #4d82d2;
+            outline: none;
+            font-size: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-bottom: 2px solid #4d82d2;
+            text-align: center;
+            background: linear-gradient(to left,transparent,#454545);
+         }
+         button{
+            border: none;
+            background: transparent;
+            border-bottom: 2px solid #4d82d2;
+            padding: 15px 20px;
+            margin-top: 4px;
+            color: #4d82d2;
+            font-size: 20px;
+            cursor: pointer;
+            background: linear-gradient(to right,transparent,#454545);
+         }
+         button:hover{
+            color: #2e60ab;
+         }
+    </style>
+</head>
+<body>
+    <input type="password" id="password" placeholder="Enter a password" required=""/>
+    <button onclick="btn(this)">
+        <i class="fa-solid fa-eye-slash" id="icon"></i>
+    </button>
+</body>
+<script>
+    var password = document.getElementById('password');
+    var icon = document.getElementById('icon');
+    function btn(elem){
+    var type = password.getAttribute('type');        
+    var cls = icon.getAttribute('class');        
+        if(type === 'password'){
+            password.setAttribute('type','text');
+            icon.setAttribute('class','fa-solid fa-eye');
+        }
+        else{
+             password.setAttribute('type','password');
+             icon.setAttribute('class','fa-solid fa-eye-slash');
+        }
+    }
+</script>
+</html>
