@@ -239,67 +239,208 @@
     footer p {
       font-size: 1rem;
     }
-    @media (max-width: 768px) {
+
+  
+  /* laptop style---------------------- */
+
+    @media (max-width:1280px){
       .nav-links ul {
         align-items: center;
         gap: 1rem;
       }
+      #hero{
+          height: 91vh;
+      }
     .hero-text h1 {
-      font-size: 2rem;
+      font-size: 4rem;
       margin-bottom: 1rem;
     }
+      #Explore-section{
+        height: 860px;
+      }
+        #Explore-section .shadow{
+          margin-top: -907px;
+          height: 900px;
+        }
     #Explore-section video{
       width: 100%;    
       height: 800px;
+      margin-top: 100px;
       top: 0;
     }
-      #Explore-section .shadow{
-        height: 540px;
-      }
+  
     #Explore-section .text{
-      font-size: 1em;
-      line-height: 30px;
+      font-size: 2em;
+      line-height: 60px;
     }
-    #Explore-section button{
-    margin: 200px 0px 0px 0px; 
-    color: #fff;
-    background:#080808;
+     #Explore-section button{
+     margin: 200px 0px 0px 800px; 
     }
-    #Explore-section button:hover{
-    background:transparent;
-    color: #000000;
-    border: 2px solid #000;
-    }
-      
-    
       /* Gallery-section------------------------ */
     #Gallery-section{
     height: 800px;
     background: #000;
-    margin-top: -100px;
+    margin-top: -40px;
     }
     #Gallery-section img:nth-child(1){
       width: 100%;
+      height: 600px;
+      margin-top: 50px;
       opacity: 0.5;
     }
   
    
     #Gallery-section .text2{
+      width: 55%;
+      margin-top: -400px;
+      margin-left: 550px;
+      font-size: 20px;
+      }
+    #Gallery-section .text2 h2{
+     font-size: 40px;
+     margin-bottom: 30px;
+   }    
+    .animated-section h2 {
+        font-size: 1.5rem;
+      }
+          .nav-links li:nth-child(3){
+            display: none;
+          }
+    }
+
+    /* mobile style ------------------------ */
+
+      @media (max-width: 790px){
+      #hero{
+          height: 220vh;
+      }
+      .hero-text{
+      padding: 10rem 2rem;
+      border-radius: 50px;
+      }
+    .hero-text h1 {
+      font-size: 4.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero-text p{
+      font-size: 2.5rem;
+    }
+      #Explore-section{
+        height: 500vh;
+      }
+        #Explore-section .shadow{
+          margin-top:-900%;
+          height: 250vh;
+          /* background: #000; */
+                }  
+    #Explore-section .text{
+      font-size: 5em;
+      line-height: 160px;
       width: 100%;
-      margin-top: 0px;
-      margin-left: 0px;
-      font-size: 15px;
+      margin-top: -1700px;
+    }
+     #Explore-section button{
+      margin: 100px 0px 0px 50px; 
+      color: #000;
+      background:#fff;
+      padding: 40px 160px;
+      font-size: 60px;
+    }
+      #Explore-section button:hover{
+      color: #fff;
+      border: 
+      1px solid #fff;
+      background:transparent;
+      }
+      /* Gallery-section------------------------ */
+    #Gallery-section .text2{
+      width: 90%;
+      margin-top: 900%;
+      margin-left:50px;
+      font-size: 40px;
+      height: 70vh;
       }
 #Gallery-section .text2 h2{
   font-size: 40px;
   margin-bottom: 30px;
-}
+} 
 
 
-     
-      .animated-section h2 {
-        font-size: 1.5rem;
+ }
+    @media (max-width: 992px){
+      nav{
+      padding: 3rem 2rem;
       }
+      
+    .nav-logo {
+      font-size:2.6rem;
+    }
+    .nav-links li{
+      font-size: 1.6rem;
+    }
+     
+
+      /* Explore-section----------------------------- */
+    #Explore-section{
+      height: 1100px;
+    }
+    #Explore-section video{
+      width: 100%;  
+      margin-top: 450px;  
+    }
+    #Explore-section .shadow{
+      height: 1200px;
+      margin-top: -1260px;
+    }
+    #Explore-section .text{
+      margin-top: -900px;
+      margin-left: 100px;
+      line-height: 90px;
+      width: 80%;
+      font-size: 3em;
+    }
+    #Explore-section button{
+    margin: 50px 0px 0px 10px; 
+    font-size: 30px;
+    color: #000;
+    cursor: pointer;
+    background:#fff;
+    }
+    #Explore-section button:hover{
+    background:transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    }
+    
+    /* Gallery-section------------------------ */
+    #Gallery-section{
+    height: 700px;
+    }
+    #Gallery-section img:nth-child(1){
+      width: 100%;
+      opacity: 0.5;
+    }
+    #Gallery-section img:nth-child(2){
+      width: 20%;
+      margin: 150px 0px 0px -700px;
+    }
+    #Gallery-section img:nth-child(3){
+      margin: 150px 0px 0px -860px;
+    }
+    #Gallery-section .text2{
+      margin-top: -350px;
+      margin-left: 400px;
+      width: 56%;
+      height: 350px;
+      font-size: 18px;
+      }
+#Gallery-section .text2 h2{
+  font-size: 35px;
+}
+    footer p {
+      font-size: 1.6rem;
+    }
+
     }
   </style>
 </head>
