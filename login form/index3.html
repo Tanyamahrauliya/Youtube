@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            box-sizing: border-box;
+        }
+        body{
+        font-family: 'Segoe UI', sans-serif;
+        height: 100vh;
+        display: flex;
+        background-image: url(na.jpg);
+        background-size: cover;
+        color: #000;
+        overflow: hidden;
+    }
+
+    .navbar{
+        display:flex;
+        padding: 3vh;
+        margin: 0px 20px 20px 900px;
+    }
+    .navbar a{
+        display: flex;
+        padding:10px;
+        text-decoration: none;
+        font-size: 19px;
+        color: #000;
+        font-weight: 600;
+        animation: slide 0.3s ease;
+    }
+    @keyframes slide {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    }
+    .navbar a::after{
+        content: " ";
+        width: 3%;
+        height: 2px;
+        background-color:#000000;
+        top: 55px;
+        position: absolute;
+        transform: scaleX(0);
+        transition: transform .5s;
+    }
+    .navbar a:hover::after{
+        transform: scaleX(1);
+    }
+    .navbar button{
+        border-radius: 2vh;
+        background: transparent;
+        border: 2px solid #070707;
+        color: #fff;
+        padding: 0px;
+        transition: all 0.5s ease-in-out;
+        animation: slide 0.3s ease;
+    }
+    .navbar button:hover{
+        color: #000;
+     }
+     .navbar h1{
+      position: absolute;
+      left: 100px;
+      cursor: pointer;        
+      animation: slide 0.3s ease;
+     }
+    </style>
+</head>
+<body>
+<nav>
+  <div class="navbar">
+      <h1>Logo</h1>
+    <a href="">Home</a>
+    <a href="">About</a>
+    <a href="">Contact</a>
+    <button class="openBtn" onclick="login()"><a href="">Login</a></button>
+    </div>
+</nav>
+  <div class="form">
+    <form>
+      
+    </form>
+  </div>
+</body>
+</html>
+
+
+
