@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Gilroy';
+    }
+
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+    }
+   .box{
+    color:#000;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+    input {
+      border: none;
+      outline: none;
+      color: #000;
+      font-size: 25px;
+      padding: 10px 70px;
+      margin-top: 20px;
+      background:#fff;
+      box-shadow: 0 0 20px 10px #00000064;
+      border-bottom: 2px solid #fff;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .box i{
+      position: absolute;
+      margin-left: 50px;
+      font-size: 25px;
+      color: #dd7419;
+      cursor: pointer;
+    }
+    .items{
+      width: 100%;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      margin-top: 100px;
+    }
+    .items i{
+    margin-left:20px;
+    font-size: 55px;
+    cursor: pointer;
+    color: #58c7f7;
+    }
+    ul{
+      display: flex;
+      margin-left: 50px;
+    }
+    li{
+      font-size: 25px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      transition: 0.3s ease-in-out;
+    }
+    li:hover{
+      margin-top: -20px;
+    }
+    .active{
+  background: #58c7f7;
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: 20%;
+  height: 35px;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="box">
+   <input type="text" id="search" placeholder="Search here..." />
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </div>
+
+  <div class="items">
+<ul id="list" type="none">
+  <li>HTML <i class="fa-brands fa-html5"></i></li>
+  <li>CSS <i class="fa-brands fa-css3-alt"></i></li>
+  <li>JavaScript <i class="fa-brands fa-square-js"></i></li>
+  <li>React <i class="fa-brands fa-react"></i></li>
+  <li>Python <i class="fa-brands fa-python"></i></li>
+</ul>
+  </div>
+
+  <div id="selected" style="text-align:center; font-size:30px; margin-top:-300px;">
+  Selected Item Will Appear Here
+</div>
+
+</body>
+<script src="first1.js"></script>
+</html>
