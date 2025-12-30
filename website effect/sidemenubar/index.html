@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Menu Bar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gilroy';
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+        body{
+            background: #113449;
+        }
+        nav{
+            width: 100%;
+            height: 60px;
+            box-shadow: 0 0 20px 10px #00000054;
+        }
+        .side-menu {
+            position: fixed;
+            left: -280px;
+            top: 0;
+            width: 250px;
+            height: 50%;
+            background-color: #113449;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding-top: 60px;
+            transition: 0.3s;
+            box-shadow: 0 0 20px 10px #00000067;
+        }
+
+        .side-menu a {
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            transition: 0.3s ease-in-out;
+            margin-left: 60px;
+        }
+        .side-menu a:hover{
+           letter-spacing: 1px;
+           font-size: 20px;
+           text-decoration: underline;
+        }
+
+        .side-menu.show {
+            left: 0;
+        }
+
+        #menuBtn {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            color: #fff;
+            background:#113449;
+            border: none;
+            border-radius: 2vh;
+        }
+        h1{
+            font-size: 20px;
+            margin-top: -50px;
+            margin-left: 200px;
+            position: absolute;
+            cursor: pointer;
+            color: #fff;
+            transition: 0.3s ease-in-out;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        h1:hover{
+            font-size: 30px;
+        }
+        h2{
+            justify-content: center;
+            display: flex;
+            margin-top: 350px;
+            font-size: 70px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+<nav>
+        <button id="menuBtn">☰</button>
+    <div id="sideMenu" class="side-menu">
+        <h1 id="hide">X</h1>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </div>
+</nav>
+<h2>Here is Menu Bar</h2>
+</body>
+<script src="script.js"></script>
+
+</html>

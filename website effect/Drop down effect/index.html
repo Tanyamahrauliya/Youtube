@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop Dwon Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gilroy';
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            background: #0a5744;
+        }
+
+        .drop-menu {
+            display: none;
+            flex-direction: column;
+            background-color: #0a5744;
+            box-shadow: 0 0 20px 10px #00000060;
+            position: absolute;
+            margin-top: 5px;
+            padding: 10px 80px;
+            border-radius: 5px;
+            margin: 0px 20px 20px 250px;
+        }
+
+        .drop-menu a {
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .drop-menu a:hover {
+            border-bottom: 2px solid #0bffc2;
+        }
+
+        .drop-menu.show {
+            display: flex;
+        }
+
+        #dropBtn {
+            padding: 10px 20px;
+            font-size: 26px;
+            cursor: pointer;
+            margin: 200px 20px 20px 300px;
+            background: transparent;
+            border: 2px solid #0bffc2;
+            border-bottom-left-radius: 2vh;
+            border-top-right-radius: 2vh;
+            color: #0bffc2;
+        }
+        #dropBtn.active{
+            border-bottom-right-radius: 2vh;
+            border-top-left-radius: 2vh;
+            border-bottom-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+        #dropBtn:hover {
+            background: #0bffc2;
+            color: #0a5744;
+        }
+
+    </style>
+</head>
+
+<body>
+    <button id="dropBtn">Menu</button>
+    <div id="dropMenu" class="drop-menu">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>
