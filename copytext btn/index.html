@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>copy text button</title>
+    <style>
+        button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <p id="text">Hello, this text will be copied!</p>
+<button id="copyBtn">Copy Text</button>
+
+</body>
+<script>const copyBtn = document.getElementById("copyBtn");
+const text = document.getElementById("text").innerText;
+
+copyBtn.addEventListener("click", function () {
+  navigator.clipboard.writeText(text);
+  copyBtn.innerText = "Copied ✔️";
+});
+</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rain animation</title>
+    <style>
+        body {
+  margin: 0;
+  height: 100vh;
+  background: #0d1b2a;
+  overflow: hidden;
+}
+
+.rain span {
+  position: absolute;
+  top: -10px;
+  width: 2px;
+  height: 80px;
+  background: rgba(255,255,255,0.6);
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+    </style>
+</head>
+<body>
+    <div class="rain"></div>
+
+</body>
+<script>
+    const rainContainer = document.querySelector(".rain");
+
+function createRainDrop() {
+  const drop = document.createElement("span");
+  drop.style.left = Math.random() * window.innerWidth + "px";
+  drop.style.animationDuration = Math.random() * 1 + 0.5 + "s";
+
+  rainContainer.appendChild(drop);
+
+  setTimeout(() => {
+    drop.remove();
+  }, 2000);
+}
+
+setInterval(createRainDrop, 100);
+
+</script>
+</html>
