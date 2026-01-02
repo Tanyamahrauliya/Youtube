@@ -2,10 +2,11 @@
     const sideMenu = document.getElementById("sideMenu");
     const hidebtn = document.getElementById("hide");
 
-    menuBtn.addEventListener("click", function () {
+
+    menuBtn.addEventListener("click",()=>{
         sideMenu.classList.toggle("show");
     });
 
-    hidebtn.addEventListener("click", () => {
+    hidebtn.addEventListener("click",()=>{
         sideMenu.classList.toggle("show");
     });

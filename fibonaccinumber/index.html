@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci number</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gilroy';
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: transparent;
+            width: 50%;
+            height: 200px;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border-radius: 2vh;
+            box-shadow: 0 0 12px 1px #000000;
+        }
+
+        input {
+            padding: 10px 30px;
+            font-size: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: transparent;
+            border: none;
+            color: #1e70ce;
+            border-bottom: 2px solid #1e70ce;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 20px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: none;
+            background: #1e70ce;
+            color: #ffffff;
+            border: none;
+            transition: 0.3s ease-in-out;
+            border-radius: 2vh;
+        }
+
+        button:hover {
+            background: transparent;
+            border: 2px solid #1e70ce;
+            color:#1e70ce;
+            margin-top: -10px;
+        }
+
+        p {
+            font-size:30px;
+            color:#1e70ce;
+        }
+        h1{
+            position: absolute;
+            margin-top: -300px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Fibonacci Number</h1>
+    <div class="container">
+        <input type="number" id="num" placeholder="Enter limit">
+        <button onclick="generateFibonacci()">Generate</button>
+        <p id="output"></p>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>
