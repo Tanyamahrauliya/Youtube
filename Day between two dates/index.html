@@ -5,19 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-input, button {
-  padding: 10px;
-  margin-top: 5px;
-  font-size: 16px;
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container */
+.calculator {
+  background: #111827;
+  padding: 30px;
+  border-radius: 12px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Inputs */
+.calculator input[type="date"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #38bdf8;
+  background: transparent;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+}
+
+.calculator input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+/* Button */
+.calculator button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  border: none;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.calculator button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #38bdf8;
+}
+
+/* Result */
+#result {
+  margin-top: 18px;
+  font-size: 16px;
+  color: #22c55e;
+  font-weight: 500;
+}
+
 
     </style>
 </head>
 <body>
-    <input type="date" id="start">
-<input type="date" id="end">
-<button onclick="calculateDays()">Calculate</button>
-<p id="result"></p>
+<div class="calculator">
+  <input type="date" id="start">
+  <input type="date" id="end">
+  <button onclick="calculateDays()">Calculate</button>
+  <p id="result"></p>
+</div>
+
 
 </body>
 <script>function calculateDays() {

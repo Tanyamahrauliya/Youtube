@@ -1,35 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Input Preview</title>
-    <style>
-         *{
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-          font-family: 'Gilroy';
-        }   
-          html,body{
-          height: 100%;
-          width: 100%;
-         }   
-         input {
-  padding: 10px;
-  font-size: 16px;
-}
-h3 {
-  margin-top: 10px;
-  color: #333;
-}
 
-    </style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Input Preview</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Gilroy';
+    }
+
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+    }
+
+     body{
+      display: grid;
+      justify-content: center;
+      align-items: center;
+     }
+    input {
+      padding: 10px 200px;
+      font-size: 18px;
+      margin-top: -200px;
+
+    }
+      .text{
+      width: 100%;
+      color: #333;
+      height: 300px;
+      margin-top: 10px;
+      box-shadow: 0 0 20px 10px  #0000005e;
+      font-family: 'Courier New', Courier, monospace;
+}
+    h3 {
+      width: 100%;
+      color: #333;
+      height: 300px;
+      position: fixed;
+      margin-top: 10px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
 </head>
+
 <body>
-    <input type="text" id="textInput" placeholder="Type something...">
-<h3 id="preview"></h3>
+  <div class="text"><h3 id="preview"></h3>
+</div>
+  <input type="text" id="textInput" placeholder="Type something...">
 
 </body>
 <script src="script.js"></script>
+
 </html>

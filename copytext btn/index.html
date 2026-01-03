@@ -10,13 +10,45 @@
   font-size: 16px;
   cursor: pointer;
 }
+input{
+  padding: 42px 90px;
+  border: 2px solid #e06a6a;
+  font-size: 20px;
+}
+p{
+  font-size: 30px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.container{
+  width: 70%;
+  height:350px;
+  background: #fff;
+  margin-top: 200px;
+  border-radius: 1vh;
+  margin-left: 100px;
+  box-shadow: 0 0 20px 10px #0000005d;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+ button{
+    margin-top: -10px;
+    border: none;
+    background: #e06a6a;
+    padding: 12px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    border-radius: 1vh;
+ }
 
     </style>
 </head>
 <body>
-    <p id="text">Hello, this text will be copied!</p>
+<div class="container">
+      <p id="text">Hello, this text will be copied!</p>
 <button id="copyBtn">Copy Text</button>
-
+<input type="text"/>
+</div>
 </body>
 <script>const copyBtn = document.getElementById("copyBtn");
 const text = document.getElementById("text").innerText;
@@ -24,6 +56,7 @@ const text = document.getElementById("text").innerText;
 copyBtn.addEventListener("click", function () {
   navigator.clipboard.writeText(text);
   copyBtn.innerText = "Copied ✔️";
+  copyBtn.style.backgroundColor = "green";
 });
 </script>
 </html>
