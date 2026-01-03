@@ -18,7 +18,8 @@
             height: 100%;
             width: 100%;
         }
-        body{
+
+        body {
             background-image: url(background-1524540_1280.jpg);
             background-size: cover;
         }
@@ -44,10 +45,11 @@
             margin-left: 60px;
             margin-top: -60px;
         }
-        .side-menu a:hover{
-           letter-spacing: 1px;
-           font-size: 25px;
-           text-decoration: underline;
+
+        .side-menu a:hover {
+            letter-spacing: 1px;
+            font-size: 25px;
+            text-decoration: underline;
         }
 
         .side-menu.show {
@@ -61,14 +63,15 @@
             cursor: pointer;
             display: none;
             color: #000000;
-            background:#ffffff;
+            background: #ffffff;
             border: none;
             border-radius: 2vh;
         }
-        h1{
+
+        h1 {
             font-size: 20px;
             margin-top: -50px;
-            margin-left: 200px;
+            margin-left: 180px;
             position: absolute;
             cursor: pointer;
             color: #000000;
@@ -76,10 +79,12 @@
             transition: 0.3s ease-in-out;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
-        h1:hover{
+
+        h1:hover {
             font-size: 30px;
         }
-        h2{
+
+        h2 {
             justify-content: center;
             display: flex;
             margin-top: 350px;
@@ -87,49 +92,54 @@
             color: #fff;
         }
 
-      @media (max-width: 790px){
-        .side-menu{
-            flex-direction: column;
-            box-shadow: 0 0 20px 10px #00000067; 
-            left: -280px;
-            top: 0px;
-            width: 50%;
-            height: 300px;
-            background: #fff;
-            
+        @media (max-width: 790px) {
+            .side-menu {
+                flex-direction: column;
+                box-shadow: 0 0 20px 10px #00000067;
+                left: -280px;
+                top: 0px;
+                width: 50%;
+                height: 300px;
+                background: #fff;
+
+            }
+
+            .side-menu a {
+                color: #000;
+                margin-top: 0px;
+            }
+
+            #menuBtn {
+                display: block;
+            }
+
+            h1 {
+                display: block;
+            }
+
+            .side-menu.show {
+                left: 0;
+            }
+
+            h2 {
+                font-size: 50px;
+            }
         }
-              .side-menu a{
-               color: #000;
-               margin-top: 0px;
-              }
-        #menuBtn{
-                 display: block;
-        }
-        h1{
-                 display:block;
-        }
-          .side-menu.show {
-            left: 0;
-        }
-        h2{
-            font-size: 50px;
-        }
-      }
     </style>
 </head>
 
 <body>
-<nav>
+    <nav>
         <button id="menuBtn">☰</button>
-    <div id="sideMenu" class="side-menu">
-        <h1 id="hide">X</h1>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
-    </div>
-</nav>
-<h2>Here is Menu Bar</h2>
+        <div id="sideMenu" class="side-menu">
+            <h1 id="hide">X</h1>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+    <h2>Here is Menu Bar</h2>
 </body>
 <script src="script.js"></script>
 
