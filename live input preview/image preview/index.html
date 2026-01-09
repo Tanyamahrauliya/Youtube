@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+  font-family: "Poppins", sans-serif;
+  background:linear-gradient(to right,rgb(73, 73, 238),rgb(219, 100, 100));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.upload-box {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 300px;
+}
+
+/* File Input */
+#upload {
+  width: 100%;
+  padding: 10px 5px;
+  border: 2px dashed #4f9cff;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  background: #f0f6ff;
+  font-size: 20px;
+}
+
+/* Image Preview */
+#preview {
+  display: none;
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #e1e1e1;
+  margin-top: 10px;
+}
+
+/* When image is selected */
+#preview.show {
+  display: block;
+}
+
+.remove-btn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: crimson;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: none;
+  border-radius: 4px;
+}
+
+.remove-btn.show {
+  display: inline-block;
+}
+
+
+
+    </style>
+</head>
+<body>
+<div class="upload-box">
+  <input type="file" id="upload" accept="image/*">
+  <img id="preview">
+  <button id="removeBtn" class="remove-btn">Remove</button>
+</div>
+
+</body>
+<script>
+const upload = document.getElementById("upload");
+const preview = document.getElementById("preview");
+const removeBtn = document.getElementById("removeBtn");
+
+upload.addEventListener("change",()=>{
+  preview.src = URL.createObjectURL(upload.files[0]);
+  preview.classList.add("show");
+  removeBtn.classList.add("show");
+});
+
+removeBtn.addEventListener("click",()=>{
+  preview.src = "";
+  preview.classList.remove("show");
+  removeBtn.classList.remove("show");
+});
+
+</script>
+</html>
