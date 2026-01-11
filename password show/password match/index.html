@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+  padding: 15px 30px;
+  font-size: 16px;
+  display: block;
+  margin-top: 20px;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+  background: #2aa891;
+}
+.container{
+  width: 70%;
+  height: 220px;
+  display: grid;
+  border-radius: 2vh;
+  box-shadow: 0 0 20px 1px;
+  background: #a25ed9;
+  align-items: center;
+  justify-content: center;
+  color: rgb(125, 24, 24);
+}
+
+p{
+  font-size: 20px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+    </style>
+</head>
+<body>
+<div class="container">
+      <input type="text" id="pass" placeholder="Password">
+<input type="text" id="confirm" placeholder="Confirm Password">
+<p id="msg"></p>
+</div>
+
+</body>
+<script>
+let pass = document.getElementById("pass");
+let confirmPass = document.getElementById("confirm");
+let msg = document.getElementById("msg");
+
+confirmPass.addEventListener("input", function () {
+  if (pass.value === confirmPass.value) {
+    msg.innerText = "Passwords match ✅";
+    msg.style.color = "rgb(114, 255, 114)";
+  } else {
+    msg.innerText = "Passwords do not match ❌";
+    msg.style.color = " rgb(125, 24, 24)";
+  }
+});
+
+</script>
+</html>

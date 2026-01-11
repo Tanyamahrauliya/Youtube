@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input, button {
+  padding: 10px;
+  border-radius: 20vh;
+  border:  1px solid #000;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:#a0e983;
+    margin-top: 200px;
+}
+button{
+    cursor: pointer;
+}
+.box{
+    padding: 20px;
+    width: 50%;
+    height: 100px;
+    background:#6fd4d4;
+    border: 1px solid;
+    box-shadow: 0 0  20px 1px;
+    border-radius: 2vh;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+}
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+        <input type="date" id="dob">
+<button onclick="checkAge()">Check Age</button>
+<p id="result"></p>
+</div>
+
+</body>
+<script>
+    function checkAge() {
+  let dob = new Date(document.getElementById("dob").value);
+  let today = new Date();
+
+  let age = today.getFullYear() - dob.getFullYear();
+
+  if (age >= 18) {
+    document.getElementById("result").innerText = "You are 18+ ✅";
+  } else {
+    document.getElementById("result").innerText = "You are under 18 ❌";
+  }
+};
+</script>
+</html>
