@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 200px;
+        }
+
+        #subBtn {
+            padding: 12px 25px;
+            font-size: 30px;
+            background: transparent;
+            border: 1px solid #fff;
+            color: white;
+            border-radius: 45px;
+            transition: 0.3s;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0.6);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        #subBtn span {
+            position: absolute;
+            top: -20px;
+            width: 10px;
+            height: 20px;
+            background: red;
+            opacity: 0.8;
+            animation: fall 4s linear infinite;
+        }
+
+        #subBtn span:nth-child(1) {
+            left: 10%;
+            background: #ff4757;
+            animation-delay: 0s;
+        }
+
+        #subBtn span:nth-child(2) {
+            left: 20%;
+            background: #1e90ff;
+            animation-delay: 0.5s;
+        }
+
+        #subBtn span:nth-child(3) {
+            left: 30%;
+            background: #2ed573;
+            animation-delay: 1s;
+        }
+
+        #subBtn span:nth-child(4) {
+            left: 40%;
+            background: #ffa502;
+            animation-delay: 0.3s;
+        }
+
+        #subBtn span:nth-child(5) {
+            left: 50%;
+            background: #e84393;
+            animation-delay: 0.8s;
+        }
+
+        #subBtn span:nth-child(6) {
+            left: 60%;
+            background: #00cec9;
+            animation-delay: 0.2s;
+        }
+
+        #subBtn span:nth-child(7) {
+            left: 70%;
+            background: #fdcb6e;
+            animation-delay: 0.6s;
+        }
+
+        #subBtn span:nth-child(8) {
+            left: 80%;
+            background: #6c5ce7;
+            animation-delay: 1.2s;
+        }
+
+        #subBtn span:nth-child(9) {
+            left: 90%;
+            background: #fab1a0;
+            animation-delay: 0.4s;
+        }
+
+        #subBtn span:nth-child(10) {
+            left: 95%;
+            background: #55efc4;
+            animation-delay: 1s;
+        }
+
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+
+        .subscribed {
+            background: green;
+            animation: pop 1s ease forwards;
+        }
+         #subBtn span  .active{
+            animation: fall 4s linear;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="subBtn">Subscribe
+        <span id="cel"></span>
+        <span id="cel"></span>
+        <span id="cel"></span>
+        <span id="cel"></span>
+        <span id="cel"></span>
+        <span id="cel"></span>
+        <span id="cel"></span>
+        <span id="cel"></span>
+        <span id="cel"></span>
+        <span id="cel"></span>
+        <span id="cel"></span>
+        <span id="cel"></span>
+    </button>
+</body>
+<script>
+    let btn = document.getElementById("subBtn");
+    let cel = document.getElementById("cel");
+
+    btn.addEventListener("click", function () {
+        btn.classList.toggle("subscribed");
+        cel.classList.toggle("active");
+        btn.innerText = btn.innerText === "Subscribe"
+            ? "Subscribed ✔"
+            : "Subscribe";
+    });
+
+</script>
+
+</html>

@@ -1,102 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        * {
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  background: #0f172a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  color: #fff;
-}
-
-.todo-box {
-  width: 320px;
-  background: #020617;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-}
-
-/* Input */
-#task {
-  width: 100%;
-  padding: 12px;
-  border-radius: 6px;
-  border: none;
-  outline: none;
-  font-size: 15px;
-}
-
-/* Button */
-button {
-  width: 100%;
-  margin-top: 10px;
-  padding: 12px;
-  background: #38bdf8;
-  border: none;
-  color: #000;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: #0ea5e9;
-}
-
-/* Task List */
-#list {
-  list-style: none;
-  padding: 0;
-  margin-top: 15px;
-}
-
-#list li {
-  background: #1e293b;
-  padding: 10px 12px;
-  margin-bottom: 8px;
-  border-radius: 6px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-}
-
-/* Completed task */
-#list li.completed {
-  text-decoration: line-through;
-  opacity: 0.6;
-}
-
-    </style>
-</head>
-<body>
-    <div class="todo-box">
-    <input type="text" id="task" placeholder="Enter task">
-<button onclick="addTask()">Add</button>
-<ul id="list"></ul>
-</div>
-</body>
-<script>
-    function addTask(){
-        let task = document.getElementById("task").value;
-        let li = document.createElement("li");
-        li.innerText = task;
-        document.getElementById("list").appendChild(li);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
     }
 
+    body {
+      background: #0f172a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      color: #fff;
+    }
+
+    .todo-box {
+      width: 620px;
+      background: #020617;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Input */
+    #task {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    /* Button */
+    .button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 12px;
+      background: #38bdf8;
+      border: none;
+      color: #000;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: #0ea5e9;
+    }
+
+    /* Task List */
+    #list {
+      list-style: none;
+      padding: 0;
+      margin-top: 15px;
+    }
+
+    #list li {
+      background: #1e293b;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    /* Completed task */
+    #list li.completed {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+    button{
+      padding: 5px 10px;
+      cursor: pointer;
+      background-color: #ed3838;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="todo-box">
+    <input type="text" id="task" placeholder="Enter task">
+    <button onclick="addTask()" class="button">Add</button>
+    <ul id="list"></ul>
+  </div>
+</body>
+<script>
+  function addTask() {
+    let task = document.getElementById("task").value;
+    let li = document.createElement("li");
+    let removeBtn = document.createElement("button");
+    removeBtn.innerText = "Delet";
+    li.innerText = task;
+    li.appendChild(removeBtn);
+    document.getElementById("list").appendChild(li);  
+    removeBtn.addEventListener("click",()=>{
+      li.remove();
+    });
+    document.getElementById("task").value = "";
+  };
+
 </script>
+
 </html>
