@@ -14,8 +14,7 @@
         body{
         font-family: 'Segoe UI', sans-serif;
         height: 100vh;
-        display: flex;
-        background-image: url(na.jpg);
+        background-image: url(godafoss-1840758_1280.jpg);
         background-size: cover;
         color: #000;
         overflow: hidden;
@@ -24,14 +23,14 @@
     .navbar{
         display:flex;
         padding: 3vh;
-        margin: 0px 20px 20px 900px;
+        margin: 0px 20px 20px 350px;
     }
     .navbar a{
         display: flex;
         padding:10px;
         text-decoration: none;
         font-size: 19px;
-        color: #000;
+        color: #fff;
         font-weight: 600;
         animation: slide 0.3s ease;
     }
@@ -47,9 +46,9 @@
     }
     .navbar a::after{
         content: " ";
-        width: 3%;
+        width: 8%;
         height: 2px;
-        background-color:#000000;
+        background-color:#fff;
         top: 55px;
         position: absolute;
         transform: scaleX(0);
@@ -61,20 +60,63 @@
     .navbar button{
         border-radius: 2vh;
         background: transparent;
-        border: 2px solid #070707;
+        border: 2px solid #fff;
         color: #fff;
         padding: 0px;
         transition: all 0.5s ease-in-out;
         animation: slide 0.3s ease;
     }
     .navbar button:hover{
-        color: #000;
+        color: #fff;
      }
      .navbar h1{
       position: absolute;
       left: 100px;
       cursor: pointer;        
       animation: slide 0.3s ease;
+     }
+     h1{
+        color: #fff;
+     }
+     .form{
+        margin-top: 100px;
+        margin-left: 150px;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(10px);
+        padding: 1px;
+        width: 55%;
+        height: 450px;
+        border-radius: 2vh;
+        box-shadow: 0 0 20px 10px #00000070;
+     }
+     input{
+        position: relative;
+        margin-top: 30px;
+        padding: 10px 50px;
+        font-size: 15px;
+        border: 1px solid #fff;
+        outline: none;
+        background: transparent;
+        color: #fff;
+     }
+     .form h1{
+        margin-left: 100px;
+        margin-top: -100px;
+     }
+     input label{
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      transform: translateY(-50px);
+      font-size: 1rem;
+      color: #fff;
+      pointer-events: none;
+     }
+     input:focus~label,
+     input:valid~label{
+        top: -5px;
      }
     </style>
 </head>
@@ -90,7 +132,14 @@
 </nav>
   <div class="form">
     <form>
-      
+        <h1>Login</h1>
+      <input type="text" placeholder="Enter your name"/><br>
+      <label>Username</label>
+      <input type="email" placeholder="Enter your name"/><br>
+      <label>Email</label>
+      <input type="password" placeholder="Enter your name"/>
+      <label>Password</label>
+
     </form>
   </div>
 </body>

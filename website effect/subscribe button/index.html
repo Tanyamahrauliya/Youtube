@@ -35,85 +35,206 @@
                 opacity: 1;
             }
         }
-
+         .cels{
+            width: 20%;
+            height: 29px;
+            position: absolute;
+            /* background: red; */
+            margin-top: -30px;
+            
+         }
         #subBtn span {
             position: absolute;
-            top: -20px;
-            width: 10px;
-            height: 20px;
-            background: red;
+            top: 10px;
+            width: 3px;
+            height: 15px;
+            background: white;
             opacity: 0.8;
-            animation: fall 4s linear infinite;
+            animation: fall 0.9s linear infinite;
         }
 
+
         #subBtn span:nth-child(1) {
-            left: 10%;
+            left: 50%;
             background: #ff4757;
             animation-delay: 0s;
+            animation: fall 2s linear infinite;
         }
 
         #subBtn span:nth-child(2) {
-            left: 20%;
+            left: 10%;
             background: #1e90ff;
             animation-delay: 0.5s;
+            animation: fall1 2s linear infinite;
         }
 
         #subBtn span:nth-child(3) {
-            left: 30%;
+            left: 100%;
             background: #2ed573;
             animation-delay: 1s;
+              animation: fall2 2s linear infinite;
         }
 
         #subBtn span:nth-child(4) {
             left: 40%;
             background: #ffa502;
             animation-delay: 0.3s;
+              animation: fall3 2s linear infinite;
         }
 
         #subBtn span:nth-child(5) {
             left: 50%;
             background: #e84393;
             animation-delay: 0.8s;
+              animation: fall4 2s linear infinite;
         }
 
         #subBtn span:nth-child(6) {
             left: 60%;
             background: #00cec9;
             animation-delay: 0.2s;
+              animation: fall5 2s linear infinite;
         }
 
         #subBtn span:nth-child(7) {
             left: 70%;
             background: #fdcb6e;
             animation-delay: 0.6s;
+              animation: fall6 2s linear infinite;
         }
 
         #subBtn span:nth-child(8) {
             left: 80%;
             background: #6c5ce7;
             animation-delay: 1.2s;
+              animation: fall7 2s linear infinite;
         }
 
         #subBtn span:nth-child(9) {
             left: 90%;
             background: #fab1a0;
             animation-delay: 0.4s;
+              animation: fall8 2s linear infinite;
         }
 
         #subBtn span:nth-child(10) {
             left: 95%;
             background: #55efc4;
             animation-delay: 1s;
+              animation: fall9 2s linear infinite;
         }
 
 
         @keyframes fall {
             0% {
-                transform: translateY(0) rotate(0deg);
+                transform: translateX(0vh) rotate(0deg);
             }
 
             100% {
-                transform: translateY(110vh) rotate(360deg);
+                transform: translateY(-20vh) rotate(360deg);
+            }
+        }
+
+
+        @keyframes fall2 {
+            0% {
+                transform: translateX(0vh) rotate(0deg);
+            }
+
+            100% {
+                margin-top: -100px;
+                transform: translateX(30vh) rotate(360deg);
+            }
+        }
+        
+
+        @keyframes fall1 {
+            0% {
+                transform: translateX(0vh) rotate(0deg);
+            }
+
+            100% {
+                transform: translateX(-50vh) rotate(360deg);
+                margin-top: -550px;
+            }
+        }
+
+        
+        @keyframes fall3 {
+            0% {
+                transform: translateX(0vh) rotate(0deg);
+            }
+
+            100% {
+                transform: translateX(50vh) rotate(360deg);
+                margin-top: -550px;
+            }
+        }
+
+                @keyframes fall4 {
+            0% {
+                transform: translateX(0vh) rotate(0deg);
+            }
+
+            100% {
+                transform: translateX(-50vh) rotate(360deg);
+                margin-top: -550px;
+            }
+        }
+
+        @keyframes fall5 {
+            0% {
+                transform: translateX(0vh) rotate(0deg);
+            }
+
+            100% {
+                transform: translateX(-50vh) rotate(360deg);
+                margin-top: -650px;
+            }
+        }
+
+
+                @keyframes fall6 {
+            0% {
+                transform: translateX(0vh) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(20vh) rotate(360deg);
+                margin-top: -750px;
+            }
+
+        }
+
+        @keyframes fall7 {
+            0% {
+                transform: translateX(0vh) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(-50vh) rotate(460deg);
+                margin-top: -550px;
+            }
+        }
+        @keyframes fall8 {
+            0% {
+                transform: translateX(0vh) rotate(0deg);
+            }
+
+            100% {
+                transform: translateX(-30vh) rotate(360deg);
+                margin-top: -550px;
+            }
+        }
+
+                @keyframes fall9 {
+            0% {
+                transform: translateX(0vh) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                margin-top: -550px;
             }
         }
 
@@ -122,13 +243,15 @@
             animation: pop 1s ease forwards;
         }
          #subBtn span  .active{
-            animation: fall 4s linear;
+            display: block;
         }
     </style>
 </head>
 
 <body>
     <button id="subBtn">Subscribe
+ <div class="cels">
+            <span id="cel"></span>
         <span id="cel"></span>
         <span id="cel"></span>
         <span id="cel"></span>
@@ -140,19 +263,20 @@
         <span id="cel"></span>
         <span id="cel"></span>
         <span id="cel"></span>
-        <span id="cel"></span>
+ </div>
     </button>
 </body>
 <script>
     let btn = document.getElementById("subBtn");
-    let cel = document.getElementById("cel");
 
     btn.addEventListener("click", function () {
         btn.classList.toggle("subscribed");
-        cel.classList.toggle("active");
         btn.innerText = btn.innerText === "Subscribe"
             ? "Subscribed ✔"
             : "Subscribe";
+            setTimeout(()=>{
+            
+            },2000);
     });
 
 </script>

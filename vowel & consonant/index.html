@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel & Consonant</title>
+    <style>
+         *{
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Gilroy';
+        }   
+          html,body{
+          height: 100%;
+          width: 100%;
+         }   
+        body{
+            background: linear-gradient(to right , rgb(126, 126, 206),rgb(216, 131, 131));
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            font-size: 30px;
+            width: 90%;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        span{
+           font-size: 30px;
+            margin-left: 70px;
+            color: #fff;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        input{
+            padding: 15px 5px;
+            margin-top:20px;
+            font-size: 20px;
+            text-indent: 60px;
+            border-radius: 2vh;
+            border: none;
+        }
+        button{
+            padding: 15px;
+            border-radius: 2vh;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        button:hover{
+            background: rgb(126, 126, 206);
+            color: aliceblue;
+            border: 1px solid #fff;
+        }
+
+       p{
+            font-size: 30px;
+            margin-top: 20px;
+            color: #fff;
+            font-family: 'Franklin Gothic Medium', 
+            'Arial Narrow', Arial, sans-serif;
+       }
+
+    </style>
+
+</head>
+<body>
+<div class="box">
+        <h1>vowels & consonants
+             <span>Checker</span> </h1>
+<input type="text" id="char" maxlength="1" placeholder="Enter a letter">
+<button onclick="checkLetter()">Check</button>
+<p id="result"></p>
+</div>
+</body>
+<script>
+function checkLetter() {
+  let ch = document.getElementById("char").value.toLowerCase();
+
+  if (ch === "") {
+    document.getElementById("result").innerText =
+     "Please enter a letter";
+    return;
+  }
+
+  if ("aeiou".includes(ch)) {
+    document.getElementById("result").innerText = 
+    "It is a Vowel ✅";
+  } else {
+    document.getElementById("result").innerText = 
+    "It is a Consonant ❌";
+  }
+}
+</script>
+</html>
