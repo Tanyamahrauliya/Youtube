@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dark Mode Toggle</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f6f8;
+  color: #222;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.container {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  transition: background 0.4s ease;
+}
+
+.container h1 {
+  margin-bottom: 10px;
+}
+
+.container p {
+  margin-bottom: 25px;
+  color: #555;
+}
+
+
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  margin: auto;
+}
+
+.toggle input {
+  display: none;
+}
+
+.toggle label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 0 20px 10px #ffffff1c;
+  transition: background 0.3s ease;
+}
+
+.toggle label::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s ease;
+}
+
+
+.toggle input:checked + label {
+  background: #222;
+}
+
+.toggle input:checked + label::after {
+  transform: translateX(30px);
+}
+
+
+body.dark {
+  background: #121212;
+  color: #f1f1f1;
+}
+
+body.dark .container {
+  background: #1e1e1e;
+}
+
+body.dark p {
+  color: #bbb;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Dark Mode Toggle</h1>
+    <p>Click the switch to change theme.</p>
+
+    <div class="toggle">
+      <input type="checkbox" id="darkToggle">
+      <label for="darkToggle"></label>
+    </div>
+  </div>
+
+  <script>
+
+const toggle = document.getElementById("darkToggle");
+
+toggle.addEventListener("change", () => {
+  document.body.classList.toggle("dark");
+});
+  </script>
+</body>
+</html>

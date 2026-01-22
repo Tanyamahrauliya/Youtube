@@ -71,19 +71,19 @@
      }
      .navbar h1{
       position: absolute;
+      color: #fff;
       left: 100px;
       cursor: pointer;        
       animation: slide 0.3s ease;
      }
-     h1{
+    .container h1{
         color: #fff;
+        margin-bottom: 50px;
+        position: absolute;
      }
      .form{
         margin-top: 100px;
         margin-left: 150px;
-        display: grid;
-        justify-content: center;
-        align-items: center;
         backdrop-filter: blur(10px);
         padding: 1px;
         width: 55%;
@@ -91,33 +91,56 @@
         border-radius: 2vh;
         box-shadow: 0 0 20px 10px #00000070;
      }
+    .margin{
+        margin-top: 20px;
+     }
+     .margin1{
+        margin-top: 180px;
+     }
+     .margin2{
+        margin-top: 330px;
+     }
+      .container{
+        position: absolute;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+        margin-left: 40px;
+      }
      input{
-        position: relative;
-        margin-top: 30px;
-        padding: 10px 50px;
+        position: absolute;
+        width: 300px;
+        height: 40px;
         font-size: 15px;
         border: 1px solid #fff;
         outline: none;
+        border-radius: 20vh;
         background: transparent;
         color: #fff;
      }
      .form h1{
-        margin-left: 100px;
+        margin-left: 90px;
         margin-top: -100px;
      }
-     input label{
-      position: absolute;
-      top: 50%;
-      left: 5px;
-      transform: translateY(-50px);
+     label{
+      position: relative;
+      color: #fff;
+      width: 100%;
+      height: 75px;
+      /* padding: 10px; */
+      background: #000;
+      top: 80px;
+      left: 20px;
       font-size: 1rem;
       color: #fff;
       pointer-events: none;
      }
-     input:focus~label,
-     input:valid~label{
-        top: -5px;
+
+     input:focus+label{
+        top: 50px;
      }
+
     </style>
 </head>
 <body>
@@ -131,15 +154,14 @@
     </div>
 </nav>
   <div class="form">
-    <form>
+    <form class="container">
         <h1>Login</h1>
-      <input type="text" placeholder="Enter your name"/><br>
-      <label>Username</label>
-      <input type="email" placeholder="Enter your name"/><br>
-      <label>Email</label>
-      <input type="password" placeholder="Enter your name"/>
-      <label>Password</label>
-
+        <input type="text" class="margin"/>
+        <label>Username</label>
+        <input type="email" class="margin1"/>
+        <label>Email</label>
+        <input type="password" class="margin2"/>
+        <label>Password</label>
     </form>
   </div>
 </body>

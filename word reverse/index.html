@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reverse Username</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background: #fff;
+    padding: 30px;
+    width: 320px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.card h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+input:focus {
+    border-color: #667eea;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #667eea;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #5a67d8;
+}
+
+#result {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #333;
+    font-weight: 600;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Reverse Username</h2>
+
+        <input type="text" id="username" placeholder="Enter username">
+        <button onclick="reverseName()">Reverse</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+    function reverseName(){
+        let name = document.getElementById("username").value;
+        let reversed = name.split("").reverse().join("");
+
+        document.getElementById("result").innerText =
+        "Reversed Username:" + reversed;
+    }
+
+    </script>
+</body>
+</html>

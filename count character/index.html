@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Character Counter</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.container {
+  background: #fff;
+  padding: 30px;
+  width: 350px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.container h1 {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.container p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+textarea {
+  width: 100%;
+  height: 120px;
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  resize: none;
+}
+
+textarea:focus {
+  border-color: #4facfe;
+}
+
+.count-box {
+  margin-top: 15px;
+  font-size: 26px;
+  color: #333;
+}
+
+.count-box b {
+  color: #4facfe;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="count-box">
+      <span>Total Characters: <b id="count">0</b></span>
+    </div>
+    <h1>Character Counter</h1>
+    <p>Type text to count characters</p>
+
+    <textarea id="text" placeholder="Start typing..."></textarea>
+
+  </div>
+
+  <script>
+const text = document.getElementById("text");
+const count = document.getElementById("count");
+
+text.addEventListener("input",()=>{
+  count.innerText = text.value.length;
+});
+
+  </script>
+</body>
+</html>

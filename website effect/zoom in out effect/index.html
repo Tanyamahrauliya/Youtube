@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoom in Zoom Out effect</title>
+    <style>
+         *{
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Gilroy';
+        }   
+          html,body{
+          height: 100%;
+          width: 100%;
+         }  
+         body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+         } 
+         .container{
+            width: 90%;
+            height: 400px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 0 20px 10px #00000060;
+            border-radius: 2vh;
+         }
+
+    </style>
+</head>
+<body>
+    <div class="container" id="zoom">
+        <img src="bg.jpg" alt="" 
+        width="100%" id="img" class="img">
+    </div>
+</body>
+<script>
+let img = document.getElementById("img");
+let zoom = document.getElementById("zoom");
+
+let Zoom_in = 0;
+zoom.addEventListener("click",()=>{
+    Zoom_in++;
+    img.style.scale = Zoom_in;
+});
+zoom.addEventListener("mouseleave",()=>{
+    Zoom_in = 1;
+    img.style.scale = Zoom_in;
+})
+</script>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Phone Cleaner</title>
+<style>
+    *{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+}
+
+.card{
+  background:#fff;
+  padding:30px;
+  width:350px;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
+  text-align:center;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  margin:15px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
+  outline:none;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  background:#1f1c2c;
+  color:#fff;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#3b3a4f;
+}
+
+#result{
+  margin-top:15px;
+  font-weight:600;
+  color:#333;
+}
+
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Phone Number Cleaner</h2>
+
+    <input type="text" id="phone" placeholder="Enter phone number">
+    <button onclick="cleanPhone()">Clean</button>
+
+    <p id="result"></p>
+  </div>
+
+  <script>
+function cleanPhone() {
+  let phone = document.getElementById("phone").value;
+
+
+  let cleaned = phone
+    .replace(/\s+/g, "")      
+    .replace(/-/g, "")     
+    .replace(/\(/g, "")      
+    .replace(/\)/g, "");     
+
+  document.getElementById("result").innerText =
+    "Cleaned Number: " + cleaned;
+}
+
+  </script>
+</body>
+</html>
