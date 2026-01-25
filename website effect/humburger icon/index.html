@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Humburgger icon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gilroy';
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            background: #000;
+        }
+
+        .container {
+            margin-top: 200px;
+            margin-left: 350px;
+            cursor: pointer;
+            width: 6%;
+            height: 50px;
+            padding: 6px;
+            border-radius: 1vh;
+            background-color: rgba(255, 254, 240, 0.325);
+        }
+        .btn{
+            margin-top: 12px;
+        }
+
+        .icon {
+            width: 100%;
+            height: 3px;
+            margin-top: 5px;
+            border-radius: 20vh;
+            background: rgb(255, 170, 0);
+            transition: 0.3s ease-in-out;
+        }
+
+        .active:nth-child(1) {
+            transform: rotate(60deg);
+        }
+
+         .active:nth-child(2) {
+            opacity: 0;
+        }
+
+        .active:nth-child(3) {
+            transform: rotate(-60deg);
+            margin-top: -10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="icon">
+      <div class="btn">
+          <div class="icon" id="bur1"></div>
+        <div class="icon" id="bur2"></div>
+        <div class="icon" id="bur3"></div>
+      </div>
+    </div>
+</body>
+<script>
+let icon = document.getElementById("icon");
+let bur1 = document.getElementById("bur1");
+let bur2 = document.getElementById("bur2");
+let bur3 = document.getElementById("bur3");
+
+icon.addEventListener("click",()=>{
+    bur1.classList.toggle("active");
+    bur2.classList.toggle("active");
+    bur3.classList.toggle("active");
+})
+</script>
+</html>

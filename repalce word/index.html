@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Phone Cleaner</title>
-<style>
-    *{
+  <title>Live Word Replace</title>
+ <style>
+  *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family:"Poppins", sans-serif;
 }
 
 body{
@@ -16,74 +16,77 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  background:linear-gradient(135deg,#141e30,#243b55);
 }
 
-.card{
+.box{
   background:#fff;
-  padding:30px;
-  width:350px;
+  padding:30px 40px;
   border-radius:12px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.25);
+  width:350px;
   text-align:center;
+  box-shadow:0 15px 40px rgba(0,0,0,0.3);
+}
+
+.box h2{
+  margin-bottom:20px;
+  color:#333;
 }
 
 input{
   width:100%;
-  padding:12px;
-  margin:15px 0;
+  padding:12px 15px;
+  font-size:16px;
+  border:2px solid #ddd;
   border-radius:8px;
-  border:1px solid #ccc;
   outline:none;
+  transition:0.3s;
 }
 
-button{
-  width:100%;
-  padding:12px;
-  border:none;
-  background:#1f1c2c;
-  color:#fff;
-  border-radius:8px;
-  cursor:pointer;
+input:focus{
+  border-color:#0077ff;
 }
 
-button:hover{
-  background:#3b3a4f;
+.output{
+  margin-top:20px;
+  font-size:18px;
+  color:#555;
 }
 
 #result{
-  margin-top:15px;
   font-weight:600;
-  color:#333;
+  color:#0077ff;
 }
 
-</style>
+ </style>
 </head>
 <body>
 
-  <div class="card">
-    <h2>Phone Number Cleaner</h2>
+  <div class="box">
+    <h2>Live Word Replace</h2>
 
-    <input type="text" id="phone" placeholder="Enter phone number">
-    <button onclick="cleanPhone()">Clean</button>
+    <input type="text" id="userInput" placeholder="Type something...">
 
-    <p id="result"></p>
+    <p class="output">
+      Output: <span id="result"></span>
+    </p>
   </div>
 
   <script>
-function cleanPhone() {
-  let phone = document.getElementById("phone").value;
+const input = document.getElementById("userInput");
+const result = document.getElementById("result");
 
+input.addEventListener("input", () => {
 
-  let cleaned = phone
-    .replace(/\s+/g, "")      
-    .replace(/-/g, "")     
-    .replace(/\(/g, "")      
-    .replace(/\)/g, "");     
+  let text = input.value;
 
-  document.getElementById("result").innerText =
-    "Cleaned Number: " + cleaned;
-}
+   let replacedText = 
+   text.replace(/javascript/gi, "🧠")
+   .replace(/html/gi,"🦴")
+   .replace(/css/gi,"🎨");
+
+  result.innerText = replacedText;
+});
 
   </script>
 </body>
