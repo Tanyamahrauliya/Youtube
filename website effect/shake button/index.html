@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+  background: #111;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+#shakeBtn {
+  padding: 14px 36px;
+  font-size: 18px;
+  border: none;
+  border-radius: 6px;
+  background: #22c55e;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.5s ease;
+}
+
+    </style>
+</head>
+<body>
+    <button id="shakeBtn">Click Me</button>
+</body>
+<script>
+    const btn = document.getElementById("shakeBtn");
+
+setInterval(() => {
+  btn.classList.add("shake");
+
+  setTimeout(() => {
+    btn.classList.remove("shake");
+  }, 500);
+}, 1000);
+
+</script>
+</html>
