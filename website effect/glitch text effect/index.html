@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+      *{
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+       font-family: 'Gilroy';
+     }   
+       html,body{
+       height: 100%;
+       width: 100%;
+      }   
+      body{
+        background: #000;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      @font-face{
+        font-family: Most;
+        src: url(./GreaterTheory.otf)
+      }
+      h1{
+        font-family: Most;
+        font-weight: 100;
+        text-shadow:  10px 0px 1px red;
+        cursor: pointer;
+      }
+
+      .active{
+         animation: anim 0.3s ease;
+      }
+      @keyframes anim{
+        0%{
+              transform: skew(10deg);
+        }
+        50%{
+              transform: skew(-90deg);
+        }
+        100%{
+              transform: skew(10deg);
+        }
+      }
+    </style>
+</head>
+<body>
+    <h1 id="h1">Glitch Text </h1>
+</body>
+<script>
+  let h1 = document.getElementById("h1");
+
+  h1.addEventListener("mouseenter",()=>{
+  h1.style.textShadow = " -5px 1px 1px  red";
+  h1.classList.toggle("active");
+
+  });
+
+  h1.addEventListener("mouseleave",()=>{
+  h1.style.textShadow = "  10px 0px 1px red";
+    h1.classList.toggle("active");
+  });
+
+</script>
+</html>
