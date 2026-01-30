@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Neon Flicker Text</title>
+  <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0b0c10;
+}
+
+.container h1 {
+  font-size: 5rem;
+  color: #0ff; /* base neon color */
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-shadow:
+    0 0 5px #0ff,
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 40px #0ff,
+    0 0 80px #0ff;
+  transition: 0.1s;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="neonText">Neon Flicker</h1>
+  </div>
+
+  <script>
+const neonText = document.getElementById("neonText");
+
+function flicker() {
+  // Randomly change opacity or shadow to create flicker
+  let flickerValue = Math.random();
+
+  if(flickerValue > 0.8) {
+    neonText.style.textShadow = "0 0 2px #0ff, 0 0 5px #0ff";
+    neonText.style.opacity = "0.6";
+  } else if(flickerValue > 0.6) {
+    neonText.style.textShadow = "0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff";
+    neonText.style.opacity = "0.9";
+  } else {
+    neonText.style.textShadow = `
+      0 0 5px #0ff,
+      0 0 10px #0ff,
+      0 0 20px #0ff,
+      0 0 40px #0ff,
+      0 0 80px #0ff
+    `;
+    neonText.style.opacity = "1";
+  }
+}
+
+// call flicker function every 100ms
+setInterval(flicker, 100);
+
+  </script>
+</body>
+</html>

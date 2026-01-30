@@ -46,13 +46,19 @@
 <script>
     const btn = document.getElementById("shakeBtn");
 
-setInterval(() => {
-  btn.classList.add("shake");
+btn.addEventListener("click",()=>{
+  
+    btn.classList.add("shake");
+    btn.innerText = "Worng";
+    btn.style.backgroundColor = "red";
+    
+    setTimeout(() => {
+      btn.classList.remove("shake");
+      btn.innerText = "Click Me";
+      btn.style.backgroundColor = "#22c55e";
+    }, 500);
 
-  setTimeout(() => {
-    btn.classList.remove("shake");
-  }, 500);
-}, 1000);
+});
 
 </script>
 </html>
