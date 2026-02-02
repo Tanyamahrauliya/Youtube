@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>flashlight effect</title>
+   <style>
+      body{
+         margin:0;
+         overflow:hidden;
+      }
+      .text{
+         text-align:center;
+         max-width:90%;
+         position:relative;
+         margin:0 auto;
+      }
+      .text h1{
+         font-size:70px;
+         font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+         letter-spacing:1px;
+      }
+      .text p{
+         font-size:18px;
+         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         letter-spacing:1px;
+         margin:20px;
+      }
+      .dark{
+         position:absolute;
+         background:#000;
+         inset:0;
+         /* z-index:9; */
+
+      }
+      #light_move{
+         width:30%;
+         height:200px;
+         border-radius:100%;
+         background-color:#fff;
+         filter:blur(30px);
+         position:absolute;
+         scale:1.0;
+      }
+   </style>
+</head>
+<body>
+   <div class="dark"></div>
+   <div id="light_move"></div>
+   <div class="text">
+       <h1>Peaceful Mountain Lakes and Rivers</h1>
+  <p>The overall atmosphere is peaceful and natural.</p>
+   </div>
+</body>
+<script>
+   let cursor = document.getElementById("light_move");
+  document.addEventListener("mousemove", (e) => {
+   const offsetx = -100;
+   const offsety = -100;
+  cursor.style.left = e.clientX + offsetx + "px";
+  cursor.style.top = e.clientY + offsety + "px";
+});
+   document.addEventListener("click",()=>{
+      cursor.style.width = "100%";
+      cursor.style.height = "100vh";
+      cursor.style.borderRadius = "0";
+      const offsetx = 0;
+      const offsety = 0;
+      cursor.style.left = 0;
+      cursor.style.top = 0;
+   });
+ 
+</script>
+</html>

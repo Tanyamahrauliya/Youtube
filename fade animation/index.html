@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scroll Based Text Fade</title>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, sans-serif;
+  }
+
+  body {
+    background: radial-gradient(circle at top, #020617, #000);
+    color: #e5e7eb;
+    overflow-x: hidden;
+  }
+
+  section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .fade-text {
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 700;
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+    transition: all 1s ease;
+  }
+
+  .fade-text.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .fade-text span {
+    background: linear-gradient(90deg, #38bdf8, #22c55e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hint {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    opacity: 0.6;
+    animation: bounce 1.5s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -8px); }
+  }
+</style>
+</head>
+<body>
+
+<section>
+  <div class="fade-text active">
+    Scroll to <span>Experience</span>
+  </div>
+</section>
+
+<section>
+  <div class="fade-text">
+    Clean. Smooth. <span>Modern</span>.
+  </div>
+</section>
+
+<section>
+  <div class="fade-text">
+    This is how <span>UI feels</span>
+  </div>
+</section>
+
+<section>
+  <div class="fade-text">
+    Not just code — <span>WOW</span>
+  </div>
+</section>
+
+<div class="hint">⬇ Scroll</div>
+
+<script>
+ const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        entry.target.classList.toggle("active", entry.isIntersecting);
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  document.querySelectorAll(".fade-text").forEach(text => {
+    observer.observe(text);
+  });
+</script>
+
+</body>
+</html>

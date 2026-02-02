@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magnetic Button</title>
+<style>
+  body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0f172a;
+    font-family: system-ui, sans-serif;
+  }
+
+  .magnetic-btn {
+    position: relative;
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    background: #2563eb;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  /* Shadow and glow effect for WOW feel */
+  .magnetic-btn::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 150%; height: 150%;
+    background: radial-gradient(circle, rgba(56,189,248,0.3) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    pointer-events: none;
+  }
+
+  .magnetic-btn:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+</style>
+</head>
+<body>
+
+<button class="magnetic-btn">Hover Me!</button>
+
+<script>
+  const button = document.querySelector('.magnetic-btn');
+
+  button.addEventListener('mousemove', (e) => {
+    const rect = button.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    button.style.transform = `translate(${x*0.2}px, ${y*0.2}px) scale(1.05)`;
+    button.style.boxShadow = `${x*0.5}px ${y*0.5}px 20px rgba(0,0,0,0.2)`;
+  });
+
+  button.addEventListener('mouseleave', () => {
+    button.style.transform = `translate(0,0) scale(1)`;
+    button.style.boxShadow = `0 0 10px rgba(0,0,0,0.1)`;
+  });
+</script>
+
+</body>
+</html>

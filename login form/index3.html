@@ -1,171 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            font-family: "Poppins", sans-serif;
-            box-sizing: border-box;
-        }
-        body{
-        font-family: 'Segoe UI', sans-serif;
-        height: 100vh;
-        background-image: url(godafoss-1840758_1280.jpg);
-        background-size: cover;
-        color: #000;
-        overflow: hidden;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .navbar{
-        display:flex;
-        padding: 3vh;
-        margin: 0px 20px 20px 350px;
-    }
-    .navbar a{
-        display: flex;
-        padding:10px;
-        text-decoration: none;
-        font-size: 19px;
-        color: #fff;
-        font-weight: 600;
-        animation: slide 0.3s ease;
-    }
-    @keyframes slide {
-      from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    }
-    .navbar a::after{
-        content: " ";
-        width: 8%;
-        height: 2px;
-        background-color:#fff;
-        top: 55px;
-        position: absolute;
-        transform: scaleX(0);
-        transition: transform .5s;
-    }
-    .navbar a:hover::after{
-        transform: scaleX(1);
-    }
-    .navbar button{
-        border-radius: 2vh;
-        background: transparent;
-        border: 2px solid #fff;
-        color: #fff;
-        padding: 0px;
-        transition: all 0.5s ease-in-out;
-        animation: slide 0.3s ease;
-    }
-    .navbar button:hover{
-        color: #fff;
-     }
-     .navbar h1{
-      position: absolute;
-      color: #fff;
-      left: 100px;
-      cursor: pointer;        
-      animation: slide 0.3s ease;
-     }
-    .container h1{
-        color: #fff;
-        margin-bottom: 50px;
-        position: absolute;
-     }
-     .form{
-        margin-top: 100px;
-        margin-left: 150px;
-        backdrop-filter: blur(10px);
-        padding: 1px;
-        width: 55%;
-        height: 450px;
-        border-radius: 2vh;
-        box-shadow: 0 0 20px 10px #00000070;
-     }
-    .margin{
-        margin-top: 20px;
-     }
-     .margin1{
-        margin-top: 180px;
-     }
-     .margin2{
-        margin-top: 330px;
-     }
-      .container{
-        position: absolute;
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        margin-top: 10px;
-        margin-left: 40px;
-      }
-     input{
-        position: absolute;
-        width: 300px;
-        height: 40px;
-        font-size: 15px;
-        border: 1px solid #fff;
-        outline: none;
-        border-radius: 20vh;
-        background: transparent;
-        color: #fff;
-     }
-     .form h1{
-        margin-left: 90px;
-        margin-top: -100px;
-     }
-     label{
-      position: relative;
-      color: #fff;
-      width: 100%;
-      height: 75px;
-      /* padding: 10px; */
-      background: #000;
-      top: 80px;
-      left: 20px;
-      font-size: 1rem;
-      color: #fff;
-      pointer-events: none;
-     }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-     input:focus+label{
-        top: 50px;
-     }
+<title>WOW Login / Signup</title>
 
-    </style>
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
+}
+
+body{
+  height:100vh;
+  background:url(godafoss-1840758_1280.jpg) center/cover no-repeat;
+  overflow:hidden;
+}
+
+.navbar{
+  display:flex;
+  align-items:center;
+  gap:25px;
+  padding:25px 80px;
+}
+
+.navbar h1{
+  margin-right:auto;
+  color:#fff;
+  font-size:20px;
+}
+
+.navbar a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:500;
+  position:relative;
+}
+
+.navbar a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:100%;
+  height:2px;
+  background:#00e5ff;
+  transform:scaleX(0);
+  transition:.3s;
+}
+
+.navbar a:hover::after{
+  transform:scaleX(1);
+}
+
+#login{
+  padding:8px 18px;
+  border-radius:20px;
+  border:1px solid #fff;
+  background:transparent;
+  color:#fff;
+  cursor:pointer;
+  transition:.3s;
+}
+
+#login:hover{
+  background:#0066ff;
+  letter-spacing:1px;
+  scale:1.1;
+}
+
+
+.form-wrapper{
+  position:absolute;
+  inset:0;
+  margin:auto;
+  width:480px;
+  height:560px;
+  perspective:1200px;
+  display:none;
+}
+
+.form-wrapper.active{
+  display:block;
+}
+
+
+.form-card{
+  width:100%;
+  height:100%;
+  position:relative;
+  transform-style:preserve-3d;
+  transition:0.8s cubic-bezier(.4,0,.2,1);
+}
+
+.form-card.flip{
+  transform:rotateY(180deg);
+}
+
+.form{
+  position:absolute;
+  inset:0;
+  padding:40px;
+  border-radius:20px;
+  backdrop-filter: blur(18px);
+  background:rgba(255,255,255,.12);
+  box-shadow:
+    0 0 30px rgba(0,0,0,.4),
+    inset 0 0 20px rgba(255,255,255,.1);
+  backface-visibility:hidden;
+}
+
+.form h2{
+  color:#fff;
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.close{
+  position:absolute;
+  top:15px;
+  right:20px;
+  background:none;
+  border:none;
+  font-size:20px;
+  color:#fff;
+  cursor:pointer;
+}
+
+
+.group{
+  position:relative;
+  margin-bottom:35px;
+}
+
+.group input{
+  width:100%;
+  padding:12px 40px 12px 10px;
+  background:transparent;
+  border:none;
+  border-bottom:2px solid rgba(255,255,255,.6);
+  outline:none;
+  color:#fff;
+  font-size:16px;
+}
+
+.group label{
+  position:absolute;
+  left:10px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#ddd;
+  pointer-events:none;
+  transition:.3s;
+}
+
+.group i{
+  position:absolute;
+  right:10px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#00e5ff;
+}
+
+.group input:focus + label,
+.group input:not(:placeholder-shown) + label{
+  top:-8px;
+  font-size:13px;
+  color:#00e5ff;
+}
+
+
+.login-btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(135deg,#00e5ff,#0066ff);
+  color:#fff;
+  font-size:18px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.login-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(0,229,255,.5);
+}
+
+
+.extra{
+  margin-top:20px;
+  display:flex;
+  justify-content:space-between;
+  color:#fff;
+  font-size:14px;
+}
+
+.extra span{
+  cursor:pointer;
+}
+
+.extra span:hover{
+  color:#00e5ff;
+}
+
+
+.signup{
+  transform:rotateY(180deg);
+}
+</style>
 </head>
+
 <body>
-<nav>
-  <div class="navbar">
-      <h1>Logo</h1>
-    <a href="">Home</a>
-    <a href="">About</a>
-    <a href="">Contact</a>
-    <button class="openBtn" onclick="login()"><a href="">Login</a></button>
-    </div>
+
+<nav class="navbar">
+  <h1>Logo</h1>
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#">Contact</a>
+  <button id="login">Login</button>
 </nav>
-  <div class="form">
-    <form class="container">
-        <h1>Login</h1>
-        <input type="text" class="margin"/>
+
+
+<div class="form-wrapper" id="wrapper">
+  <div class="form-card" id="card">
+
+
+    <div class="form login">
+      <button class="close" id="close">✕</button>
+      <h2>Welcome Back</h2>
+
+      <div class="group">
+        <input type="text" required placeholder=" ">
         <label>Username</label>
-        <input type="email" class="margin1"/>
-        <label>Email</label>
-        <input type="password" class="margin2"/>
+        <i class="fa-solid fa-user"></i>
+      </div>
+
+      <div class="group">
+        <input type="password" required placeholder=" ">
         <label>Password</label>
-    </form>
+        <i class="fa-solid fa-lock"></i>
+      </div>
+
+      <button class="login-btn">Log In</button>
+
+      <div class="extra">
+        <span>Forgot password?</span>
+        <span id="toSignup">Create account</span>
+      </div>
+    </div>
+
+    <!-- ===== SIGN UP ===== -->
+    <div class="form signup">
+      <button class="close" id="close2">✕</button>
+      <h2>Create Account</h2>
+
+      <div class="group">
+        <input type="text" required placeholder=" ">
+        <label>Username</label>
+        <i class="fa-solid fa-user"></i>
+      </div>
+
+      <div class="group">
+        <input type="email" required placeholder=" ">
+        <label>Email</label>
+        <i class="fa-solid fa-envelope"></i>
+      </div>
+
+      <div class="group">
+        <input type="password" required placeholder=" ">
+        <label>Password</label>
+        <i class="fa-solid fa-lock"></i>
+      </div>
+
+      <button class="login-btn">Sign Up</button>
+
+      <div class="extra">
+        <span id="toLogin">Already have account?</span>
+      </div>
+    </div>
+
   </div>
+</div>
+
+<script>
+const loginBtn = document.getElementById("login");
+const wrapper = document.getElementById("wrapper");
+const card = document.getElementById("card");
+const close = document.getElementById("close");
+const close2 = document.getElementById("close2");
+const toSignup = document.getElementById("toSignup");
+const toLogin = document.getElementById("toLogin");
+
+loginBtn.onclick = () => wrapper.classList.add("active");
+close.onclick = close2.onclick = () => {
+  wrapper.classList.remove("active");
+  card.classList.remove("flip");
+};
+
+toSignup.onclick = () => card.classList.add("flip");
+toLogin.onclick = () => card.classList.remove("flip");
+</script>
+
 </body>
 </html>
-
 
 
