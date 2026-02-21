@@ -5,55 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>copy text button</title>
     <style>
-        button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
+/* Reset */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Poppins", sans-serif;
 }
-input{
-  padding: 42px 90px;
-  border: 2px solid #6a80e0;
-  font-size: 20px;
-}
-p{
-  font-size: 30px;
-  color: #fff;
-  margin:20px;
-  margin-top: 50px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-.container{
-  width: 70%;
-  height:350px;
-  background: #072950;
-  margin-top: 200px;
-  border-radius: 1vh;
-  margin-left: 100px;
-  box-shadow: 0 0 20px 10px #0000005d;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-}
- button{
-    margin-top:-330px;
-    position: absolute;
-    margin-left: 490px;
-    border: none;
-    background: #e06a6a;
-    padding: 12px;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-    border-radius: 1vh;
- }
 
+/* Body Styling */
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: linear-gradient(135deg,#1e1e2f,#0f3460);
+}
+
+/* Container Card */
+.container{
+  width:350px;
+  padding:40px 30px;
+  border-radius:20px;
+  backdrop-filter: blur(15px);
+  background: rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.2);
+  box-shadow:0 25px 60px rgba(0,0,0,0.4);
+  text-align:center;
+  transition:0.4s ease;
+}
+
+.container:hover{
+  transform:translateY(-8px);
+  box-shadow:0 35px 80px rgba(0,0,0,0.6);
+}
+
+/* Text */
+#text{
+  color:#fff;
+  font-size:18px;
+  margin-bottom:25px;
+  letter-spacing:0.5px;
+}
+
+/* Input */
+.container input{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  outline:none;
+  margin-bottom:20px;
+  font-size:14px;
+  background:rgba(255,255,255,0.15);
+  color:#fff;
+  transition:0.3s;
+}
+
+.container input:focus{
+  background:rgba(255,255,255,0.25);
+  box-shadow:0 0 10px rgba(0,255,255,0.6);
+}
+
+/* Button */
+#copyBtn{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background: linear-gradient(135deg,#00f5ff,#0066ff);
+  color:#fff;
+  font-weight:600;
+  font-size:15px;
+  cursor:pointer;
+  transition:0.3s ease;
+}
+
+#copyBtn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(0,102,255,0.5);
+}
+
+#copyBtn:active{
+  transform:scale(0.95);
+}
     </style>
 </head>
 <body>
 <div class="container">
       <p id="text">Hello, this text will be copied!</p>
       <input type="text"/>
+      <button id="copyBtn">Copy Text</button>
     </div>
-    <button id="copyBtn">Copy Text</button>
 </body>
 <script>
 const copyBtn = document.getElementById("copyBtn");
