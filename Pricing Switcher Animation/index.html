@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing Switcher Animation</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+}
+
+/* Heading */
+h1{
+  font-size:42px;
+  margin-bottom:30px;
+  background:linear-gradient(90deg,#38bdf8,#22c55e);
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* Toggle Switch */
+.switch-container{
+  margin-bottom:50px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  font-weight:500;
+}
+
+.switch{
+  position:relative;
+  width:70px;
+  height:35px;
+  background:#334155;
+  border-radius:50px;
+  cursor:pointer;
+  transition:.4s;
+}
+
+.switch::before{
+  content:"";
+  position:absolute;
+  width:28px;
+  height:28px;
+  top:3.5px;
+  left:4px;
+  background:#fff;
+  border-radius:50%;
+  transition:.4s ease;
+}
+
+.switch.active{
+  background:linear-gradient(90deg,#38bdf8,#22c55e);
+}
+
+.switch.active::before{
+  transform:translateX(35px);
+}
+
+/* Pricing Cards */
+.pricing{
+  display:flex;
+  gap:40px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.card{
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(15px);
+  padding:40px 30px;
+  border-radius:25px;
+  width:280px;
+  text-align:center;
+  transition:.4s ease;
+  border:1px solid rgba(255,255,255,0.1);
+  position:relative;
+  overflow:hidden;
+}
+
+.card:hover{
+  transform:translateY(-15px);
+  box-shadow:0 25px 60px rgba(0,0,0,0.5);
+}
+
+.card.popular{
+  border:1px solid #38bdf8;
+  box-shadow:0 0 40px rgba(56,189,248,.4);
+}
+
+.plan{
+  font-size:20px;
+  margin-bottom:15px;
+  font-weight:600;
+}
+
+.price{
+  font-size:45px;
+  font-weight:bold;
+  margin-bottom:20px;
+}
+
+.price span{
+  font-size:18px;
+  color:#94a3b8;
+}
+
+ul{
+  list-style:none;
+  margin-bottom:25px;
+}
+
+ul li{
+  margin:8px 0;
+  color:#cbd5e1;
+  font-size:14px;
+}
+
+button{
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  background:linear-gradient(90deg,#38bdf8,#22c55e);
+  color:#fff;
+  font-weight:600;
+  transition:.3s;
+}
+
+button:hover{
+  transform:scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<h1>Our Pricing Plans</h1>
+
+<div class="switch-container">
+  <span>Monthly</span>
+  <div class="switch" id="toggle"></div>
+  <span>Yearly (Save 20%)</span>
+</div>
+
+<div class="pricing">
+
+  <div class="card">
+    <div class="plan">Basic</div>
+    <div class="price">$<span class="amount" data-month="19" data-year="182">19</span><span>/mo</span></div>
+    <ul>
+      <li>5 Projects</li>
+      <li>Email Support</li>
+      <li>Basic Analytics</li>
+    </ul>
+    <button>Choose Plan</button>
+  </div>
+
+  <div class="card popular">
+    <div class="plan">Pro</div>
+    <div class="price">$<span class="amount" data-month="39" data-year="374">39</span><span>/mo</span></div>
+    <ul>
+      <li>20 Projects</li>
+      <li>Priority Support</li>
+      <li>Advanced Analytics</li>
+    </ul>
+    <button>Choose Plan</button>
+  </div>
+
+  <div class="card">
+    <div class="plan">Enterprise</div>
+    <div class="price">$<span class="amount" data-month="79" data-year="758">79</span><span>/mo</span></div>
+    <ul>
+      <li>Unlimited Projects</li>
+      <li>Dedicated Support</li>
+      <li>Full Analytics</li>
+    </ul>
+    <button>Choose Plan</button>
+  </div>
+
+</div>
+
+<script>
+/* ---------- Price Counter Animation ---------- */
+function animatePrice(element, newValue){
+  const duration = 400;
+  const start = parseInt(element.textContent);
+  const startTime = performance.now();
+
+  function update(currentTime){
+    const progress = Math.min((currentTime - startTime)/duration,1);
+    const value = Math.floor(progress * (newValue - start) + start);
+    element.textContent = value;
+    if(progress < 1) requestAnimationFrame(update);
+  }
+
+  requestAnimationFrame(update);
+}
+
+/* ---------- Toggle Logic ---------- */
+const toggle = document.getElementById("toggle");
+const prices = document.querySelectorAll(".amount");
+let yearly = false;
+
+toggle.addEventListener("click",()=>{
+  yearly = !yearly;
+  toggle.classList.toggle("active");
+
+  prices.forEach(price=>{
+    const newPrice = yearly ? price.dataset.year : price.dataset.month;
+    animatePrice(price, newPrice);
+
+    price.nextElementSibling.textContent = yearly ? "/yr" : "/mo";
+  });
+});
+</script>
+
+</body>
+</html>
