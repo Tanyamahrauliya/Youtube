@@ -5,35 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        input, button {
-  padding: 10px;
-  border-radius: 20vh;
-  border:  1px solid #000;
-  font-size: 16px;
-  margin-top: 5px;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background:#a0e983;
-    margin-top: 200px;
+/* Full Screen Center */
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
 }
-button{
-    cursor: pointer;
+
+/* Glass Box */
+.box {
+  width: 350px;
+  padding: 40px 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.4),
+    inset 0 0 15px rgba(255,255,255,0.1);
+  text-align: center;
+  transition: 0.4s ease;
 }
-.box{
-    padding: 20px;
-    width: 50%;
-    height: 100px;
-    background:#6fd4d4;
-    border: 1px solid;
-    box-shadow: 0 0  20px 1px;
-    border-radius: 2vh;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 25px;
+
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 30px 60px rgba(0,0,0,0.6),
+    inset 0 0 20px rgba(255,255,255,0.15);
 }
+
+/* Date Input */
+.box input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  margin-bottom: 20px;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  backdrop-filter: blur(5px);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+  transition: 0.3s ease;
+}
+
+.box input:focus {
+  background: rgba(255,255,255,0.25);
+  box-shadow: 0 0 15px #00f2ff;
+}
+
+/* Button */
+.box button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #00f2ff, #0072ff);
+  transition: 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,114,255,0.5);
+}
+
+.box button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0,114,255,0.7);
+  letter-spacing: 1px;
+}
+
+/* Result Text */
+#result {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  min-height: 24px;
+  transition: 0.3s ease;
+}
+
     </style>
 </head>
 <body>
