@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debounce Search</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+  color:white;
+}
+
+.container{
+  width:400px;
+  padding:30px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(20px);
+  border-radius:20px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+h2{
+  text-align:center;
+  margin-bottom:20px;
+  font-weight:600;
+  letter-spacing:1px;
+}
+
+.search-box{
+  position:relative;
+}
+
+input{
+  width:100%;
+  padding:14px 18px;
+  border-radius:12px;
+  border:none;
+  outline:none;
+  font-size:16px;
+  background:rgba(255,255,255,0.08);
+  color:white;
+  transition:0.3s;
+}
+
+input:focus{
+  background:rgba(255,255,255,0.12);
+  box-shadow:0 0 0 2px #38bdf8;
+}
+
+.results{
+  margin-top:20px;
+  max-height:200px;
+  overflow-y:auto;
+}
+
+.results div{
+  padding:10px;
+  margin-bottom:8px;
+  border-radius:10px;
+  background:rgba(255,255,255,0.05);
+  transition:0.3s;
+  cursor:pointer;
+}
+
+.results div:hover{
+  background:#38bdf8;
+  color:#000;
+  transform:translateX(5px);
+}
+
+.loading{
+  font-size:14px;
+  opacity:0.7;
+  margin-top:10px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Debounce Search</h2>
+
+  <div class="search-box">
+    <input type="text" id="search" placeholder="Search something...">
+    <div class="loading" id="loading"></div>
+    <div class="results" id="results"></div>
+  </div>
+</div>
+
+<script>
+const searchInput = document.getElementById("search");
+const results = document.getElementById("results");
+const loading = document.getElementById("loading");
+
+const data = [
+  "JavaScript","HTML","CSS","React","NodeJS","MongoDB",
+  "Python","Java","C++","Web Design","Frontend",
+  "Backend","Full Stack","UI UX Design","API Development"
+];
+
+function debounce(func, delay){
+  let timer;
+  return function(...args){
+    clearTimeout(timer);
+    timer = setTimeout(()=>func.
+    apply(this,args),delay);
+  }
+}
+
+// Search logic
+function handleSearch(){
+  const query = searchInput.value.
+  toLowerCase();
+  results.innerHTML = "";
+
+  if(query === ""){
+    loading.innerText = "";
+    return;
+  }
+
+  loading.innerText = "Searching...";
+  
+  setTimeout(()=>{ 
+    const filtered = data.filter
+    (item =>
+      item.toLowerCase().includes
+      (query)
+    );
+
+    loading.innerText = "";
+
+    if(filtered.length === 0){
+      results.innerHTML = 
+      "<div>No Results Found</div>";
+      return;
+    }
+
+    filtered.forEach(item=>{
+      const div = 
+      document.createElement("div");
+      div.textContent = item;
+      results.appendChild(div);
+    });
+
+  },500);
+}
+
+const debouncedSearch = 
+debounce(handleSearch, 600);
+
+searchInput.addEventListener("input",
+ debouncedSearch);
+
+
+
+</script>
+
+</body>
+</html>
