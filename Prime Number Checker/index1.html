@@ -4,7 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prime Number Checker</title>
-    <link rel="stylesheet" href="style.css"/>
+    <style>
+      body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:Poppins, sans-serif;
+}
+
+.box{
+  padding:30px;
+  border-radius:10px;
+  text-align:center;
+  color: #ca6e05;
+  box-shadow: 0 0 20px 10px #0202025b;
+}
+
+input{
+  padding:10px;
+  font-size:16px;
+  margin:10px 0;
+  width:200px;
+}
+
+button{
+  padding:10px 20px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+#result{
+  margin-top:15px;
+  font-size:18px;
+}
+
+    </style>
 </head>
 <body>
 <div class="box">
@@ -14,5 +49,24 @@
   <p id="result"></p>
 </div>
 </body>
-<script src="script.js"></script>
+<script>
+  function checkPrime() {
+  let num = document.getElementById("num").value;
+  let result = document.getElementById("result");
+
+  if (num <= 1) {
+    result.textContent = "Not a Prime Number ❌";
+    return;
+  }
+
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      result.textContent = "Not a Prime Number ❌";
+      return;
+    }
+  }
+
+  result.textContent = "Prime Number ✅";
+}
+</script>
 </html>
