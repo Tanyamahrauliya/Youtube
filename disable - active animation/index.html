@@ -54,9 +54,7 @@
     box-shadow: 0 10px 30px rgba(34,197,94,.4);
   }
 
-  /* ===============================
-     DISABLED STATE
-     =============================== */
+
 
   body.disabled .app {
     filter: blur(6px) brightness(0.6);
@@ -112,7 +110,7 @@
   <button id="toggle">Disable Active</button>
 </div>
 
-<!-- Overlay -->
+
 <div class="overlay">
   <div class="lock">
     <h2>🔒 Interface Locked</h2>
@@ -121,15 +119,13 @@
 </div>
 
 <script>
-  const toggleBtn = document.getElementById("toggle");
-
-  toggleBtn.addEventListener("click", () => {
-    document.body.classList.add("disabled");
-  });
-
-  document.querySelector(".overlay").addEventListener("click", () => {
-    document.body.classList.remove("disabled");
-  });
+const toggleBtn = document.getElementById("toggle");
+toggleBtn.addEventListener("click",()=>{
+  document.body.classList.add("disabled");
+});
+document.querySelector(".overlay").addEventListener("click",()=>{
+  document.body.classList.remove("disabled");
+})
 </script>
 
 </body>
