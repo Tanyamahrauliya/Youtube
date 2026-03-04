@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Professional Form Validation</title>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #08223a,#0c2e68 );
+    /* background:#08223a; */
+  }
+
+  .container {
+    background: #0a1e3191;
+    padding: 40px;
+    width: 350px;
+    border-radius: 16px;
+    border:#0f2f4d solid 1px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: 0.3s ease;
+  }
+
+    .container:hover{
+        margin-bottom:30px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.863);
+    }
+
+  .container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2a5298;
+  }
+
+  .input-group {
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    outline: none;
+    color:#fff;
+    transition: 0.3s ease;
+    border:#0c3f6e solid 1px;
+    font-size: 14px;
+    background:#0b1e308a;
+  }
+
+  .input-group input:focus {
+    border-color: #2a5298;
+    box-shadow: 0 0 8px rgba(42, 82, 152, 0.4);
+  }
+
+  .error {
+    font-size: 12px;
+    color: red;
+    margin-top: 5px;
+    display: none;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #2a5298;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  button:hover {
+    background: #1e3c72;
+  }
+
+  /* Shake Animation */
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-6px); }
+    80% { transform: translateX(6px); }
+    100% { transform: translateX(0); }
+  }
+
+  .shake {
+    animation: shake 0.4s ease;
+  }
+
+  .success {
+    border-color: green !important;
+  }
+
+  .invalid {
+    border-color: red !important;
+  }
+
+  .success-message {
+    text-align: center;
+    color: green;
+    margin-top: 15px;
+    font-weight: 500;
+    display: none;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container" id="formBox">
+  <h2>Register</h2>
+  <form id="myForm">
+
+    <div class="input-group">
+      <input type="text" id="name" placeholder="Enter your name" />
+      <div class="error" id="nameError">Name is required</div>
+    </div>
+
+    <div class="input-group">
+      <input type="email" id="email" placeholder="Enter your email" />
+      <div class="error" id="emailError">Valid email required</div>
+    </div>
+
+    <div class="input-group">
+      <input type="password" id="password" placeholder="Enter password (min 6 chars)" />
+      <div class="error" id="passError">Password must be at least 6 characters</div>
+    </div>
+
+    <button type="submit">Submit</button>
+    <div class="success-message" id="successMsg">Form Submitted Successfully ✔</div>
+
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById("myForm");
+  const formBox = document.getElementById("formBox");
+
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const passInput = document.getElementById("password");
+
+  const nameError = document.getElementById("nameError");
+  const emailError = document.getElementById("emailError");
+  const passError = document.getElementById("passError");
+
+  const successMsg = document.getElementById("successMsg");
+  
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let isValid = true;
+
+    // Name Validation
+    if (nameInput.value.trim() === "") {
+      nameError.style.display = "block";
+      nameInput.classList.add("invalid");
+      isValid = false;
+    } else {
+      nameError.style.display = "none";
+      nameInput.classList.remove("invalid");
+      nameInput.classList.add("success");
+    }
+
+    // Email Validation
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!emailInput.value.match(emailPattern)) {
+      emailError.style.display = "block";
+      emailInput.classList.add("invalid");
+      isValid = false;
+    } else {
+      emailError.style.display = "none";
+      emailInput.classList.remove("invalid");
+      emailInput.classList.add("success");
+    }
+
+    // Password Validation
+    if (passInput.value.length < 6) {
+      passError.style.display = "block";
+      passInput.classList.add("invalid");
+      isValid = false;
+    } else {
+      passError.style.display = "none";
+      passInput.classList.remove("invalid");
+      passInput.classList.add("success");
+    }
+
+    if (!isValid) {
+      formBox.classList.add("shake");
+      setTimeout(() => {
+        formBox.classList.remove("shake");
+      }, 400);
+    } else {
+      successMsg.style.display = "block";
+      form.reset();
+      nameInput.classList.remove("success");
+      emailInput.classList.remove("success");
+      passInput.classList.remove("success");
+    }
+  });
+ 
+
+
+
+</script>
+
+</body>
+</html>
