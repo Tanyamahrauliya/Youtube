@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>26 January – Republic Day</title>
+ <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(to bottom, #000428, #004e92);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.container {
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  animation: glow 2s infinite alternate;
+}
+
+.flag {
+  width: 320px;
+  height: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: auto;
+  box-shadow: 0 0 30px rgba(255,255,255,0.3);
+}
+
+.saffron, .white, .green {
+  height: 33.33%;
+  width: 100%;
+}
+
+.saffron { background: #FF9933; animation: wave 2s infinite; }
+.white   { background: #fff; display: flex; justify-content: center; align-items: center; }
+.green   { background: #138808; animation: wave 2s infinite reverse; }
+
+.chakra {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #000080;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 4s linear infinite;
+}
+
+.chakra::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-conic-gradient(
+    #000080 0deg 10deg,
+    transparent 10deg 20deg
+  );
+  border-radius: 50%;
+}
+
+.quote {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+@keyframes rotate {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes wave {
+  50% { filter: brightness(1.1); }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #fff; }
+  to { text-shadow: 0 0 25px #ff9933, 0 0 35px #138808; }
+}
+
+ </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="title">🇮🇳 Happy Republic Day 🇮🇳</h1>
+
+    <div class="flag">
+      <div class="saffron"></div>
+
+      <div class="white">
+        <div class="chakra"></div>
+      </div>
+
+      <div class="green"></div>
+    </div>
+
+    <p class="quote">26 January – Proud to be Indian</p>
+  </div>
+
+  <script>
+const emojis = ["🇮🇳", "🕊️", "✨"];
+
+setInterval(() => {
+  const emoji = document.createElement("div");
+  emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+  emoji.style.position = "absolute";
+  emoji.style.left = Math.random() * window.innerWidth + "px";
+  emoji.style.top = "-50px";
+  emoji.style.fontSize = "24px";
+  emoji.style.animation = "fall 5s linear";
+
+  document.body.appendChild(emoji);
+
+  setTimeout(() => emoji.remove(), 5000);
+}, 300);
+
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes fall {
+  to { transform: translateY(110vh); opacity: 0; }
+}`;
+document.head.appendChild(style);
+
+  </script>
+</body>
+</html>
