@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neumorphic Music Player</title>
+<style>
+    /* ===== GLOBAL ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#e6ecff;
+}
+
+/* ===== PLAYER ===== */
+.player{
+  width:320px;
+  padding:30px;
+  border-radius:25px;
+  background:#e6ecff;
+  box-shadow:
+    10px 10px 20px #c8d0ff,
+    -10px -10px 20px #ffffff;
+  text-align:center;
+}
+
+h2{
+  margin-bottom:20px;
+  color:#4169e1;
+}
+
+/* ===== ALBUM COVER ===== */
+.album-container{
+  width:200px;
+  height:200px;
+  margin:20px auto;
+  border-radius:50%;
+  box-shadow:
+    inset 8px 8px 15px #c8d0ff,
+    inset -8px -8px 15px #ffffff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.cover{
+  width:170px;
+  height:170px;
+  border-radius:50%;
+  object-fit:cover;
+  transition:transform 0.4s linear;
+}
+
+.cover.playing{
+  animation:rotate 6s linear infinite;
+}
+
+@keyframes rotate{
+  from{ transform:rotate(0deg);}
+  to{ transform:rotate(360deg);}
+}
+
+/* ===== PROGRESS ===== */
+.progress-container{
+  width:100%;
+  height:8px;
+  margin:20px 0;
+  border-radius:10px;
+  background:#d5dcff;
+  cursor:pointer;
+  box-shadow:
+    inset 4px 4px 8px #c8d0ff,
+    inset -4px -4px 8px #ffffff;
+}
+
+.progress{
+  height:100%;
+  width:0%;
+  background:#4169e1;
+  border-radius:10px;
+}
+
+/* ===== CONTROLS ===== */
+.controls{
+  display:flex;
+  justify-content:space-between;
+  margin-top:20px;
+}
+
+.controls button{
+  width:60px;
+  height:60px;
+  border:none;
+  border-radius:50%;
+  font-size:20px;
+  background:#e6ecff;
+  cursor:pointer;
+  box-shadow:
+    6px 6px 12px #c8d0ff,
+    -6px -6px 12px #ffffff;
+  transition:0.3s;
+}
+
+.controls button:active{
+  box-shadow:
+    inset 6px 6px 12px #c8d0ff,
+    inset -6px -6px 12px #ffffff;
+}
+</style>
+</head>
+<body>
+
+<div class="player">
+
+    <h2>Now Playing</h2>
+
+    <div class="album-container">
+        <img src="https://picsum.photos/300" id="cover" class="cover">
+    </div>
+
+    <h3 id="title">Track One</h3>
+
+    <!-- Progress -->
+    <div class="progress-container" onclick="setProgress(event)">
+        <div class="progress" id="progress"></div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+        <button onclick="prevSong()">⏮</button>
+        <button id="playBtn" onclick="togglePlay()">▶</button>
+        <button onclick="nextSong()">⏭</button>
+    </div>
+
+    <audio id="audio"></audio>
+
+</div>
+
+<script>
+    // ===== SONG LIST =====
+const songs = [
+  {
+    title: "Track One",
+    src: "Dekha_Ek_Khwab_x_Laila_(Full_Version)_-_Sush_&_Yohan_x_@oyeeditorranna__Mashup(128k).mp3"
+  },
+  {
+    title: "Track Two",
+    src: "Infraction-Music-Endless-Sunrise-pr.mp3"
+  }
+  
+];
+
+let songIndex = 0;
+
+const audio = document.getElementById("audio");
+const title = document.getElementById("title");
+const playBtn = document.getElementById("playBtn");
+const progress = document.getElementById("progress");
+const cover = document.getElementById("cover");
+
+// ===== LOAD SONG =====
+function loadSong(song){
+  title.textContent = song.title;
+  audio.src = song.src;
+}
+
+loadSong(songs[songIndex]);
+
+// ===== PLAY / PAUSE =====
+function togglePlay(){
+  if(audio.paused){
+    audio.play();
+    playBtn.textContent = "⏸";
+    cover.classList.add("playing");
+  } else {
+    audio.pause();
+    playBtn.textContent = "▶";
+    cover.classList.remove("playing");
+  }
+}
+
+// ===== NEXT / PREVIOUS =====
+function nextSong(){
+  songIndex = (songIndex + 1) % songs.length;
+  loadSong(songs[songIndex]);
+  audio.play();
+  playBtn.textContent = "⏸";
+  cover.classList.add("playing");
+}
+
+function prevSong(){
+  songIndex = (songIndex - 1 + songs.length) % songs.length;
+  loadSong(songs[songIndex]);
+  audio.play();
+  playBtn.textContent = "⏸";
+  cover.classList.add("playing");
+}
+
+// ===== PROGRESS UPDATE =====
+audio.addEventListener("timeupdate", updateProgress);
+
+function updateProgress(){
+  const percent = (audio.currentTime / audio.duration) * 100;
+  progress.style.width = percent + "%";
+}
+
+// ===== SEEK =====
+function setProgress(e){
+  const width = e.currentTarget.clientWidth;
+  const clickX = e.offsetX;
+  const duration = audio.duration;
+
+  audio.currentTime = (clickX / width) * duration;
+}
+</script>
+</body>
+</html>
